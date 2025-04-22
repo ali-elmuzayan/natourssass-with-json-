@@ -1,0 +1,7 @@
+what we will learn:
+-------------------
+ => how to build a nice popup with only CSS;
+ => how to use the :target pseudo class;
+ => How to create boxes with equal height using display: table-cell;
+ => how to create CSS text columns;
+ => how to automatically hyphenate words using hyphens

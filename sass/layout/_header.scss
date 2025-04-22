@@ -1,0 +1,46 @@
+.header {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("./../img/hero-small.jpg");
+  background-size: cover;
+  background-position: top; /* which mean the top of the image will still the same as we change the size */
+  padding: 1.2rem;
+  min-height: 95vh;
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
+  clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
+  // move from x and Y directions
+
+  &-logo-box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 2.8rem;
+    transition: 0.3s;
+  }
+  .logo:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 0 5px $color-white);
+    cursor: pointer;
+  }
+}
+
+.header-menu {
+  padding: 20px;
+  background-color: $color-white;
+}
+
+.header-text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.8rem;
+}

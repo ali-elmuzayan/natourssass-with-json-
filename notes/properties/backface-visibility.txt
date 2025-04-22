@@ -1,0 +1,16 @@
+backface-visibility
+-------------------
+ => the backface of the box make it shown or not 
+
+
+example: card-flip
+------------------
+ => the idea of the card flip
+    - create on div.parent and nest 2dive (one for front and other for back)
+    - make the parent position relative and on hover rotate 
+    - make the 2 element top of each other by position absolute 
+    - you should hide the backface of each view 
+    - the back should be rotate to 180 so it will
+ => add the backface visibility hidden to the parent so it will applied to the 2 childs 
+
+

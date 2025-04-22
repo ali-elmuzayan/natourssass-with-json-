@@ -1,0 +1,139 @@
+.navigation {
+  //   width: 5rem;
+  //   height: 5rem;
+  //   border-radius: 50%;
+
+  //   position: fixed;
+  //   top: 5rem;
+  //   right: 5rem;
+  //   z-index: 10;
+  //   cursor: pointer;
+  //   background-color: $color-white;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
+  &-checkbox {
+    display: none;
+  }
+  &-button {
+    text-align: center;
+
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-color: $color-white;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    z-index: 110;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.15);
+    cursor: pointer;
+  }
+  &-background {
+    width: 6rem;
+    height: 6rem;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    background-position: center;
+    border-radius: 50%;
+    z-index: 100;
+    scale: 0.9;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); // easings.net or cubic-bazier.com
+  }
+  &-nav {
+    width: 0;
+    height: 100%;
+    // display: none;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 101;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  &-list {
+    // use flex or position to center it (position is the old way to do that )
+    position: absolute;
+    @include absCenter;
+    list-style: none;
+    text-align: center;
+  }
+  &-item {
+    margin: 1rem;
+  }
+  &-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 3rem;
+    font-weight: 300;
+    text-decoration: none;
+    color: $color-white;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+    background-image: linear-gradient(
+      120deg,
+      transparent 0,
+      transparent 50%,
+      $color-white 50%
+    );
+    background-size: 220%;
+
+    & span {
+      margin-right: 1.5rem;
+      display: inline-block;
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+    }
+  }
+
+  &-checkbox:checked ~ &-background {
+    transform: scale(80);
+  }
+
+  &-checkbox:checked ~ &-nav {
+    // display: block;
+    opacity: 100;
+    width: 100%;
+  }
+
+  // icon
+  &-icon {
+    position: relative;
+    margin-top: 2.8rem;
+    &,
+    &::after,
+    &::before {
+      width: 3rem;
+      height: 0.2rem;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    &::before {
+      top: -1rem;
+    }
+
+    &::after {
+      top: 1rem;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+What is new (web dev simplified):
+-----------------------------------
+
+ => @layer 
+    - to create a different layers
+    - for the specificities, if you do have different url 
+
+ => text-wrap: 
+    - balance /* will balance throw lines */
+
+ => nesting in css 
+    - like what we have in sass write 
+
+ => container queries
+    - change the layout of card, or main section or container with different 
+      viewport
+    - @container
+    - Ex. @container house-card (width <= 450) {
+         .card {
+            grid-template-columns: 1fr;
+            grid-template-rows: 200px 200px;
+         }
+    }
+
+ => relative colors:
+    - allow you to take one color and convert it using what ever function you want 
+    - usage: you can darken the color or light it for example 
+    - oklch()
+
+ => :has() selector
+    - usage (to check if it has something or not)
+    - for example you can check if you r input :has(.input:user-invalid)
+      or :has(.input:user-valid)

@@ -1,0 +1,13 @@
+
+transform origin:
+-----------------
+ => where the origin of transform start 
+    - for example if you will translate it will by default translate from the center 
+      because the origin default value is 50% 50% 
+    - think like you have a x axis and y axis and you select where the point the change 
+      happen from it 
+
+ => the default value: 50% 50% 0 
+ => 2D transform : transform-origin(X, Y)
+ => 3D transform : transform-origin(X, Y, Z)
+ => the values can be px, em, rem, percentage or keywords (like left or right)

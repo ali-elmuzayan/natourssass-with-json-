@@ -1,0 +1,54 @@
+there is 2 type of animation:
+----------------------------
+ => use transition 
+ => use keyframes
+
+
+keyframes:
+------------
+ => @keyframes moveInLeft 
+    - hide the element
+
+ => animation
+    - animation-name: identifier
+    - animation-delay: // to delay the animation 
+    - animation-count: // the time it will repeated
+    - animation-duration: // the duration that animation depend to end one count 
+    - animation-function-timing  // define how the animation will proceed 
+       => you can use "cubic-bezier() function to write custom time 
+
+transform:
+---------
+ => translate
+ => translateY 
+    => move the element vertically
+ => translateX
+     => move the element horizontally 
+
+
+Note: 
+-----
+ => If you notice that there is something wrong with the animation like moving to left but 
+    it getting up a little try to add 
+    - backface-visibility: hidden;
+
+ => with transform you can add multiple value by separate them with comma
+
+ => ctrl + d to select multiple thing at the same time 
+    - for example select one word and try that 
+
+
+button animation : 
+-----------------
+ 
+ => how to make it moving down when clicking 
+    - by adding shadow 
+    - and make it "transform: translateY(1)" to move down
+    - to make it look better
+      => when hovering translateY to the top a little bit and add 
+        more shadow so 
+
+ => what if we want to hide the button when the browser shown after 1s
+    - you can delay the animation 
+    - and use "animation-fill-mode:backwards" to hide it 
+      which will make it 0 percent until the animation happen 

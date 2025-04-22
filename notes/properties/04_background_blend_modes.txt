@@ -1,0 +1,26 @@
+background-blend-modes:
+------------------------
+ => how to shown 2 or more background-images on top of each with some visualization.
+  
+ => you can apply multiple values in one property 
+ => value
+    - overlay, multiply, darken, soft-light, dark-light, color-burn, screen, saturation,
+      lighten, luminosity, normal
+
+ => in short, 
+    - it is empowers us to seamlessly blend various background layers of an element. it act as a digital brush
+    - the background-blend-mode is a key tool for creating visual stunning affects using only css 
+
+
+example: 
+ => adding 2 images on top of each other 
+ => then add 
+   background-blend-mode: overlay;
+   background-blend-mode: multiply;
+   background-blend-mode: darken;
+   background-blend-mode: soft-light; 
+
+
+Additional: 
+----------
+ => try mix-blend-mode:difference or darken

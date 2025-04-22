@@ -1,0 +1,35 @@
+overview: 
+---------
+ => what is perspective
+    - is to make the view 3d 
+ => what it do 
+    - it control how much depth you see in 3D 
+ => what we have 
+    - perspective: value; to the parent
+      => small value make the element closer to  the viewer
+      => larger value make the depth more subtle  
+      => set it to none then the 3d affect disappears entirely 
+
+    - perspective-origin: to the parent 
+      => the specific position of change in the element 
+
+
+
+don't use transform anymore:
+-----------------------------
+
+ => scale: property for scaling
+    - can take 2 value for the 2 dimension 
+ => translate property instead of translate in transform
+ => rotate property alone without transform 
+ => skew 
+
+
+ => now you can use them without needing to transform so why using them 
+
+ => issues that you might face with transform
+    - imagine that you have a class do something with transform and 
+      another one doing another thing with transform, this will not work 
+      correctly 
+    - something like variable not working correctly with animation but now it work good 
+      with the stand alone properties

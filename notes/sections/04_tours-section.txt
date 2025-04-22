@@ -1,0 +1,45 @@
+what we are going to learn:
+---------------------------
+ => how to build an amazing rotating card 
+ => backface-visibility
+ => how to user perspective in css 
+ => using background blend modes
+ => how and when to use box-decoration-break
+
+
+what is in the card: 
+--------------------
+ => card-picture 
+    - we will not add image tag, instead we are going to style it by 
+    adding a background image then add background-blend-mode
+    - the image will case the to overlap so we need to make the sidr card 
+      overview: hidden 
+    
+
+ => card heading: 
+    - box-decoration-break: clone;
+      => this is going to fix the issue of the position
+      => it will apply all the decloartion we have in the selector
+         to all of the boxes
+what is perspective do:
+------------------------
+ => it make the box like it come from the background to you 
+
+
+card-flip: 
+-----------
+ => what is the issue I make with card 
+ 
+    - the transition should be here in the "card-side" div not
+      in the "card" div
+
+ => the 2 sides (visibility: 0 of both)
+    - the front will be in 0 rotate and when hover rotate to 180
+    - the back will be at 180 rotate ane when hover rotate to 0
+    - they both need to be in top of one another 
+
+
+Note: 
+--------
+ => corner of the front card are no longer round and that 
+    because of the clip path (because it break the overflow: hidden)

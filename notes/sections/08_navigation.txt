@@ -1,0 +1,49 @@
+what we will learn:
+---------------------
+ => what is the "checkbox hack" is and how it works
+ => how to create custom animation timing function using cubic bezier curves;
+ => how to animate "solid color gradients";
+ => how and why to use transform-origin
+ => In general: crate an amazingly creative effect;
+ 
+
+What is the main idea of our navigation here: 
+----------------------------------------------
+ => how to make the navigation work without JS 
+    - by the checkbox hack 
+ => we will put the navigation on top of anything else even on top of heading 
+    which will contain:
+    - input of type checkbox
+    - label for the input
+    - empty div with class navigation-background for example
+    - nav element with all the navigation lists
+
+ => explanation 
+    - give the background div a position fixed with a specific value
+    - also give the label position fixed with the same values of the background and make it on top of 
+      the background div by giving it a higher z-index
+    - nav element 
+      => give it a width 100% and height 100vh, also make the position to fixed
+      => center the ul of the nav to the middle 
+
+
+what happen on click on the button 
+-----------------------------------
+ => first scale up the background dive to cover the web or even get bigger it doesn't matter 
+    - &-checkbox:checked ~ $-background {transform:scale(80)}
+ => display the nav by giving it a width and opacity because in normal it will be with no opacity or width
+ => give transition to the nav and the background
+
+
+adding the animation of the link: 
+---------------------------------
+ => on the element itself
+   - give it a linear gradients in the 120deg with transparent color and white 
+   - increase the background-size:
+
+
+Note: 
+-----
+ => the transform might not work good if your display: inline 
+    instead try to use display:inline-block
+

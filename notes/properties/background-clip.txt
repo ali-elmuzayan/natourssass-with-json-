@@ -1,0 +1,24 @@
+what we can do with the background-clip: 
+----------------------------------------
+ => what it do :
+    - it change where the background will be render 
+ => values:
+    - padding-box (default)
+    - content-box 
+    - border-box
+    - inherit 
+    - text 
+ 
+ => padding-box
+    - which mean the background will render the content and padding 
+ => border-box 
+    - will render the background in the content, padding, and border 
+ 
+ => text 
+    - this is will let the background only shown throw the text 
+    - Note: 
+      => you might shown the text with the normal color then you need 
+        to change => color: transparent; 
+
+Note: 
+ => some browser not support it so you might need to use --webkit-

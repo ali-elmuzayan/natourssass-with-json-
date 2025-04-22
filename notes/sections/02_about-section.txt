@@ -1,0 +1,53 @@
+overview:
+----------
+ => What we are going to learn in the about section 
+    - utilities classes
+    - background-clip
+    - transform multiple properties simultaneously
+    - outline offset and outline 
+
+
+About section:
+----------------
+ => we fixed the empty white color that exist from the header
+    by the margin top in this section 
+
+ => thinking in utilities is a very good idea 
+    - so you can reuse the style 
+    - entering text, margin, padding and so on 
+
+ => by setting the font size in variable you make it easy to change it later 
+
+
+Text:
+-----
+ = how we can set the text color to be gradient 
+    1. by setting the background to gradient
+    2. background-clip: text;
+       it will clip the background linear gradient color to exactly the place where the text sits 
+    3. color: transparent;
+
+ => adding the effect to the text 
+    - add shadow 
+    - transform: skewX, skewY and scale()
+
+
+
+
+
+Emmet: 
+------
+ => this extension that will help you when writing your html 
+    - .ali  => <div class="ali"></div>
+    - section.ali => <section class="ali"></section>
+
+ => use the bigger than ">" to write children 
+
+
+the mistake I did:
+-----------------
+ => design the 3 elements with different positions:
+    - when design the image I changed its positions  to the middle and move it from there 
+    - while there is such a much better way is to set it form the relative box like position 
+      the first image to left, the second to right and the last to bottom.
+      

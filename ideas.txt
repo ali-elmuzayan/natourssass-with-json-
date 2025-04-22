@@ -1,0 +1,19 @@
+what idea do we have:
+-----------------------
+ => to build your portfolio
+ => to build a clock timer with some animation 
+
+
+
+To build your portfolio: 
+------------------------
+ => you can set an amount of project's image at the hero section when user hover it will 
+    do some animation like the one we have in natours project and when use click it 
+    it will show a pop up of that project details and the user can move to it  
+
+
+Build a clock timer with animation:
+-----------------------------------
+ => you can change the steps of the animation time to show the second it will work 
+    - animation-timing-function: steps($amount-0f-seconds, end);
+    - animation-duration: $amount-of-seconds

@@ -1,0 +1,23 @@
+What we will learn here:
+-------------------------
+ => HOw to include and use an icon font;
+    - "linea.io"
+ => another way of creating the "skewed section" design;
+ => How and when to use the direct child selector 
+ => "& >  *" this mean style everything that is a direct child of the element 
+
+icons: 
+--------
+ => i tags is not for icons (it was used for italic) but it used for icons   
+ => you can look for the reference 
+ => style it as you style a text 
+
+
+skewY:
+------
+ => we use skew with the transform property 
+    we can set it to get the shape of the background that we have 
+    instead of using the clip-path: polygon()
+
+ => but it might cause skewing for the children 
+    - to handle that skew the child to the opposite direction of the parent 

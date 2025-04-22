@@ -1,0 +1,59 @@
+.section-about {
+  background-color: $color-grey-light-1;
+  padding: 20rem 0;
+  margin-top: -20vh;
+}
+
+.section-feature {
+  text-align: center;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url(./../img/nat-4.jpg);
+  padding: 20rem 0;
+  height: 100vh;
+
+  background-position: center;
+  background-size: cover;
+  clip-path: polygon(0 20vh, 0 100%, 100% 80vh, 100% 0);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -20vh;
+
+  // transform: skewY(-7deg);
+  // & > * {
+  //   transform: skewY(7deg);
+  // }
+}
+
+.section-tours {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0 15rem 0;
+  margin-top: -20vh;
+}
+
+.section-stories {
+  background-color: $color-grey-light-1;
+  padding: 15rem 0;
+}
+
+.footer {
+  padding: 10rem;
+  background-color: $color-grey-dark-3;
+  color: $color-white;
+
+  &-col {
+    border-top: 1px solid $color-white;
+    padding: 1.6rem 0.8rem;
+
+    & ul {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+    }
+  }
+}

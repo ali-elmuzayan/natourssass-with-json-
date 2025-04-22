@@ -1,0 +1,27 @@
+how to set the image and the gradient color together:
+-----------------------------------------------------
+ => remember the gradient is act as the image so we need the 
+    background-image to set it 
+ => you can use the background-image with the 2 value 
+    background-image: linear-gradient(), url();
+ => we used background-position: 
+    - so it set the position of the image that will be fixed 
+      and the image will change with the size from there
+
+
+ => clip-path: 
+   - specify the image or the element that will still be visible
+   - using polygon(x y, x y, x y)
+   - ty this web: bennettfeely.com/clippy
+
+ 
+ => if you cannot center something for any reason you can use the position for doing that 
+    position: relative; top: 50%; left:50%; transform: translate(50%, 50%)
+
+
+
+color that we are going to use here in this project 
+====
+ => light green: #7ed56f
+ => medium green: #55c57a
+ => dark green: #28b485

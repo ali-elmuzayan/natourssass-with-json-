@@ -1,0 +1,45 @@
+what we have:
+--------------
+ => How to make text flow around shapes with shape-outside and float;
+ => how to apply a filter to images;
+ => how to create a background video covering an entire section 
+ => how to use the <video> HTML element 
+ => How and when to use the object-fit property
+
+
+how to create the story box:
+------------------------------
+ => first it will be the 75% of the width
+ => skew it and then skew the nest child in the other side 
+
+
+
+how to make the background video:
+---------------------------------
+ => first in the section add bg-video and nest a video element inside it 
+ => there is a website where you can get a free videos: 
+    - coverr.co
+    - when you download the vidoe you will get it in 2 formats to make sure 
+      it will work in the different browser
+
+
+
+how to make the circle image when hover shown the name of the user:
+------------------------------------------------------------
+ => be nest it in a figure tag
+ => the figure tag could be shape-outside: circle();
+    - in order to make it work it should be have dimension and has width and height
+
+ => caption:
+    - move it to the middle by the absolute position 
+    - text trnasform: uppercase 
+
+
+NOte: 
+-------
+ => in css you cannot have 2 transform in the same element 
+ => the best way to add space with element that floated is translate it not adding 
+    margin or padding 
+
+ => when ever we dealing with animation and somthing wrong happen try to add 
+    backface-visiblity: hidden; this might fix teh glitch

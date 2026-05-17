@@ -8,6 +8,22 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
 }
 
 body {
@@ -17,6 +33,18 @@ body {
   line-height: 1.7;
   color: #555;
   padding: 2.8rem;
+  background-color: #f7f7f7;
+  overflow-x: hidden;
+}
+@media only screen and (max-width: 56.25em) {
+  body {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: #55c57a;
+  color: #fff;
 }
 
 @keyframes moveInLeft {
@@ -83,12 +111,36 @@ body {
   animation-name: moveInLeft;
   animation-duration: 1s;
 }
+@media only screen and (max-width: 56.25em) {
+  .heading-primary-main {
+    font-size: 5rem;
+    letter-spacing: 1rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .heading-primary-main {
+    font-size: 3.8rem;
+    letter-spacing: 0.6rem;
+  }
+}
 .heading-primary-sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1.75rem;
   animation: moveInRight 1s ease;
+}
+@media only screen and (max-width: 56.25em) {
+  .heading-primary-sub {
+    letter-spacing: 0.8rem;
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .heading-primary-sub {
+    letter-spacing: 0.5rem;
+    font-size: 1.4rem;
+  }
 }
 
 .heading-secondary {
@@ -98,9 +150,21 @@ body {
   display: inline-block;
   background-image: linear-gradient(to right, #55c57a, #28b485);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s;
+}
+@media only screen and (max-width: 56.25em) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .heading-secondary {
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
+  }
 }
 .heading-secondary:hover {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
@@ -156,8 +220,10 @@ body {
   padding: 1.5rem 4rem;
   border-radius: 10rem;
   font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  transition: 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
   z-index: 1;
   background-color: #fff;
   color: #000;
@@ -165,13 +231,19 @@ body {
   cursor: pointer;
   border: none;
 }
+@media only screen and (max-width: 37.5em) {
+  .btn {
+    padding: 1.2rem 2.8rem;
+    font-size: 1.4rem;
+  }
+}
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.12);
 }
 .btn:active {
   transform: translateY(1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.08);
 }
 .btn::after {
   content: "";
@@ -236,15 +308,15 @@ body {
 
 .composition {
   position: relative;
+  min-height: 35rem;
 }
 .composition-img {
   width: 55%;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
-  border-radius: 2px;
+  box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.18);
+  border-radius: 0.4rem;
   position: absolute;
-  transition: all 0.2s;
+  transition: transform 0.3s ease, outline 0.2s, z-index 0.2s;
   outline-offset: 2rem;
-  border-radius: 0;
 }
 .composition-img-p1 {
   left: 0;
@@ -259,39 +331,61 @@ body {
   top: 10rem;
 }
 .composition-img:hover {
-  transform: scale(1.1) translateY(-1rem);
+  transform: scale(1.08) translateY(-1rem);
   outline: 1rem solid #55c57a;
   z-index: 10;
+  box-shadow: 0 2.5rem 6rem rgba(0, 0, 0, 0.5);
 }
 .composition:hover .composition-img:not(:hover) {
   transform: scale(0.95);
+}
+@media only screen and (max-width: 56.25em) {
+  .composition {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    min-height: 0;
+  }
+  .composition-img {
+    position: static;
+    width: 100%;
+    outline-offset: 0.5rem;
+  }
+  .composition-img-p1, .composition-img-p2, .composition-img-p3 {
+    left: auto;
+    right: auto;
+    top: auto;
+  }
 }
 
 .feature-card {
   display: flex;
   flex-direction: column;
-  padding: 1.8rem 0;
+  padding: 3rem 2.5rem;
+  text-align: center;
   font-size: 1.5rem;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.8);
-  min-height: 35vh;
-  max-height: 45vh;
-  border-radius: 5px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  transition: all 0.2s;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 0.8rem;
+  box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
 }
 .feature-card:hover {
-  transform: translateY(-2rem);
-  scale: 1.05;
+  transform: translateY(-1.5rem) scale(1.03);
+  box-shadow: 0 2.5rem 5rem rgba(0, 0, 0, 0.2);
 }
 .feature-card .icon {
-  align-self: auto;
+  align-self: center;
   background-image: linear-gradient(to right, #55c57a, #28b485);
   font-weight: 800;
   background-clip: text;
-  font-size: 5.2rem;
+  -webkit-background-clip: text;
+  font-size: 6rem;
   color: transparent;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .card {
@@ -308,9 +402,9 @@ body {
   height: 52rem;
   overflow: hidden;
   backface-visibility: hidden;
-  transition: all 1.5s cubic-bezier(0.7, -0.5, 0.3, 1.8);
-  border-radius: 5px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: all 1.2s cubic-bezier(0.7, -0.3, 0.3, 1.5);
+  border-radius: 0.8rem;
+  box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.12);
 }
 .card-side-front {
   background-color: #fff;
@@ -328,6 +422,30 @@ body {
 }
 .card:hover .card-side-back {
   transform: rotateY(0);
+}
+@media only screen and (max-width: 56.25em), only screen and (hover: none) {
+  .card {
+    height: auto;
+    border-radius: 0.8rem;
+    background-color: #fff;
+    box-shadow: 0 1rem 2.4rem rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+  }
+  .card-side {
+    position: relative;
+    height: auto;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .card-side-back {
+    transform: rotateY(0);
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    padding: 7rem 4rem 4rem 4rem;
+    margin-top: -2rem;
+  }
+  .card:hover .card-side-front {
+    transform: rotateY(0);
+  }
 }
 .card-img {
   width: 100%;
@@ -422,8 +540,24 @@ body {
   font-size: 1.6rem;
   margin-bottom: 5rem;
   transform: skewX(-12deg);
-  border-radius: 3px;
-  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.8rem;
+  box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s ease;
+}
+@media only screen and (max-width: 56.25em) {
+  .story {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .story {
+    transform: skewX(0);
+    padding: 3rem;
+    padding-left: 3rem;
+    display: block;
+  }
 }
 .story-shape {
   width: 15rem;
@@ -433,6 +567,13 @@ body {
   clip-path: circle(50% at 50% 50%);
   transform: translate(-3rem) skew(12deg);
   position: relative;
+}
+@media only screen and (max-width: 37.5em) {
+  .story-shape {
+    transform: translateX(0) skew(0);
+    margin: 0 auto 2rem auto;
+    float: none;
+  }
 }
 .story-img {
   height: 100%;
@@ -460,6 +601,14 @@ body {
   float: left;
   transform: skew(12deg);
 }
+@media only screen and (max-width: 37.5em) {
+  .story-text {
+    width: 100%;
+    float: none;
+    transform: skew(0);
+    text-align: center;
+  }
+}
 .story:hover .story-caption {
   opacity: 1;
   transform: translate(-50%, -50%);
@@ -472,38 +621,53 @@ body {
 .row {
   max-width: 114rem;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 6rem;
+  row-gap: 6rem;
+  padding: 0 3rem;
 }
 .row:not(:last-child) {
   margin-bottom: 8rem;
 }
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
+@media only screen and (max-width: 56.25em) {
+  .row:not(:last-child) {
+    margin-bottom: 6rem;
+  }
 }
-.row [class^=col-] {
-  float: left;
+@media only screen and (max-width: 56.25em) {
+  .row {
+    grid-template-columns: 1fr;
+    max-width: 50rem;
+    column-gap: 0;
+    row-gap: 6rem;
+  }
 }
-.row [class^=col-]:not(:last-child) {
-  margin-right: 6rem;
+.row > *:not([class*=col-]) {
+  grid-column: 1/-1;
 }
 .row .col-1-of-2 {
-  width: calc((100% - 6rem) / 2);
+  grid-column: span 6;
 }
 .row .col-1-of-3 {
-  width: calc((100% - 2 * 6rem) / 3);
+  grid-column: span 4;
 }
 .row .col-2-of-3 {
-  width: calc(2 * (100% - 2 * 6rem) / 3 + 6rem);
+  grid-column: span 8;
 }
 .row .col-1-of-4 {
-  width: calc((100% - 3 * 6rem) / 4);
+  grid-column: span 3;
 }
 .row .col-2-of-4 {
-  width: calc(2 * (100% - 3 * 6rem) / 4 + 6rem);
+  grid-column: span 6;
 }
 .row .col-3-of-4 {
-  width: calc(3 * (100% - 3 * 6rem) / 4 + 2 * 6rem);
+  grid-column: span 9;
+}
+@media only screen and (max-width: 56.25em) {
+  .row [class^=col-] {
+    grid-column: 1/-1;
+  }
 }
 
 /**
@@ -514,20 +678,34 @@ body {
     and wrap it into curly braces
     */
 .header {
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("./../img/hero-small.jpg");
+  position: relative;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)), url("./../img/hero-small.jpg");
   background-size: cover;
-  background-position: top; /* which mean the top of the image will still the same as we change the size */
-  padding: 1.2rem;
+  background-position: top;
+  padding: 2.4rem 3.2rem;
   min-height: 95vh;
   -webkit-clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
   clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
 }
+@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+  .header {
+    min-height: 95vh;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .header {
+    clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
+    padding: 1.6rem;
+  }
+}
 .header-logo-box {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .header .logo {
-  height: 2.8rem;
+  height: 3.5rem;
   transition: 0.3s;
 }
 .header .logo:hover {
@@ -568,6 +746,20 @@ body {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
+@media only screen and (max-width: 56.25em) {
+  .navigation-button {
+    top: 4rem;
+    right: 4rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .navigation-button {
+    top: 2.5rem;
+    right: 2.5rem;
+    width: 5rem;
+    height: 5rem;
+  }
+}
 .navigation-background {
   width: 6rem;
   height: 6rem;
@@ -580,6 +772,20 @@ body {
   z-index: 100;
   scale: 0.9;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+@media only screen and (max-width: 56.25em) {
+  .navigation-background {
+    top: 4rem;
+    right: 4rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .navigation-background {
+    top: 2.5rem;
+    right: 2.5rem;
+    width: 5rem;
+    height: 5rem;
+  }
 }
 .navigation-nav {
   width: 0;
@@ -657,19 +863,38 @@ body {
   padding: 20rem 0;
   margin-top: -20vh;
 }
+@media only screen and (max-width: 56.25em) {
+  .section-about {
+    padding: 14rem 0;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .section-about {
+    padding: 10rem 0;
+  }
+}
 
 .section-feature {
   text-align: center;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(./../img/nat-4.jpg);
-  padding: 20rem 0;
-  height: 100vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)), url(./../img/nat-4.jpg);
+  padding: 20rem 0 22rem 0;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   clip-path: polygon(0 20vh, 0 100%, 100% 80vh, 100% 0);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: -20vh;
+}
+@media only screen and (max-width: 56.25em) {
+  .section-feature {
+    padding: 14rem 0 16rem 0;
+    background-attachment: scroll;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .section-feature {
+    padding: 10rem 0 12rem 0;
+    clip-path: polygon(0 10vh, 0 100%, 100% 90vh, 100% 0);
+  }
 }
 
 .section-tours {
@@ -677,25 +902,107 @@ body {
   padding: 25rem 0 15rem 0;
   margin-top: -20vh;
 }
+@media only screen and (max-width: 56.25em) {
+  .section-tours {
+    padding: 18rem 0 10rem 0;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .section-tours {
+    padding: 14rem 0 8rem 0;
+  }
+}
 
 .section-stories {
+  position: relative;
   background-color: #f7f7f7;
   padding: 15rem 0;
 }
+@media only screen and (max-width: 56.25em) {
+  .section-stories {
+    padding: 10rem 0;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .section-stories {
+    padding: 8rem 0;
+  }
+}
 
 .footer {
-  padding: 10rem;
+  padding: 10rem 0;
   background-color: #333;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.4rem;
 }
-.footer-col {
-  border-top: 1px solid #fff;
-  padding: 1.6rem 0.8rem;
+@media only screen and (max-width: 56.25em) {
+  .footer {
+    padding: 8rem 0;
+  }
 }
-.footer-col ul {
+.footer-logo-box {
+  text-align: center;
+  margin-bottom: 8rem;
+}
+@media only screen and (max-width: 56.25em) {
+  .footer-logo-box {
+    margin-bottom: 6rem;
+  }
+}
+.footer-logo {
+  width: 15rem;
+  height: auto;
+}
+.footer-navigation {
+  border-top: 1px solid #999;
+  padding-top: 2rem;
   display: flex;
-  justify-content: space-between;
-  list-style: none;
+  align-items: center;
+  height: 100%;
 }
-
-/*# sourceMappingURL=style.css.map */
+@media only screen and (max-width: 56.25em) {
+  .footer-navigation {
+    text-align: center;
+  }
+}
+.footer-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+}
+@media only screen and (max-width: 56.25em) {
+  .footer-list {
+    justify-content: center;
+    width: 100%;
+  }
+}
+.footer-item {
+  display: inline-block;
+}
+.footer-link {
+  color: rgba(255, 255, 255, 0.85);
+  background-color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.2s, transform 0.2s, text-shadow 0.2s;
+}
+.footer-link:hover, .footer-link:active {
+  color: #55c57a;
+  transform: rotate(3deg) scale(1.15);
+  text-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+.footer-copyright {
+  border-top: 1px solid #999;
+  padding-top: 2rem;
+  width: 80%;
+}
+@media only screen and (max-width: 56.25em) {
+  .footer-copyright {
+    width: 100%;
+    text-align: center;
+    border-top: none;
+    padding-top: 0;
+  }
+}

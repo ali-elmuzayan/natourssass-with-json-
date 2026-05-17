@@ -8,8 +8,22 @@
   font-size: $default-font-size;
   margin-bottom: 5rem;
   transform: skewX(-12deg);
-  border-radius: 3px;
-  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  border-radius: $radius-md;
+  box-shadow: $shadow-lg;
+  transition: transform 0.3s ease;
+
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+    padding: 3rem;
+    padding-left: 3rem;
+    display: block;
+  }
 
   &-shape {
     width: 15rem;
@@ -19,6 +33,12 @@
     clip-path: circle(50% at 50% 50%);
     transform: translate(-3rem) skew(12deg);
     position: relative;
+
+    @include respond(phone) {
+      transform: translateX(0) skew(0);
+      margin: 0 auto 2rem auto;
+      float: none;
+    }
   }
 
   &-img {
@@ -48,6 +68,13 @@
     width: 70%;
     float: left;
     transform: skew(12deg);
+
+    @include respond(phone) {
+      width: 100%;
+      float: none;
+      transform: skew(0);
+      text-align: center;
+    }
   }
 
   &:hover &-caption {

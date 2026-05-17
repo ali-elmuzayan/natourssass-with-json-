@@ -1,67 +1,63 @@
+// ===========================
+// Modern CSS Grid system
+// Markup-compatible drop-in replacement for the legacy float grid
+// .row is a 12-column grid; .col-X-of-Y spans the proportional amount
+// On tablet portrait and below, all columns collapse to a single full-width column.
+// ===========================
 .row {
   max-width: $grid-width;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: $gutter-horizontal;
+  row-gap: $gutter-vertical-small;
+  padding: 0 3rem;
 
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
 
-    // @include respond(tab-port) {
-    //   margin-bottom: $gutter-vertical-small;
-    // }
-  }
-
-  // @include respond(tab-port) {
-  //   max-width: 50rem;
-  //   padding: 0 3rem;
-  // }
-
-  @include clearfix;
-
-  [class^="col-"] {
-    float: left;
-
-    &:not(:last-child) {
-      margin-right: $gutter-horizontal;
-
-      // @include respond(tab-port) {
-      //   margin-right: 0;
-      //   margin-bottom: $gutter-vertical-small;
-      // }
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
     }
-
-    // @include respond(tab-port) {
-    //   width: 100% !important;
-    // }
   }
 
+  @include respond(tab-port) {
+    grid-template-columns: 1fr;
+    max-width: 50rem;
+    column-gap: 0;
+    row-gap: $gutter-vertical-small;
+  }
+
+  // Any direct child without a col-* class spans the whole row
+  // (e.g. <div class="row"><div class="story">…</div></div>)
+  > *:not([class*="col-"]) {
+    grid-column: 1 / -1;
+  }
+
+  // Column spans (12-col grid)
   .col-1-of-2 {
-    width: calc((100% - #{$gutter-horizontal}) / 2);
+    grid-column: span 6;
   }
-
   .col-1-of-3 {
-    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    grid-column: span 4;
   }
-
   .col-2-of-3 {
-    width: calc(
-      2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
-    );
+    grid-column: span 8;
   }
-
   .col-1-of-4 {
-    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+    grid-column: span 3;
   }
-
   .col-2-of-4 {
-    width: calc(
-      2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}
-    );
+    grid-column: span 6;
+  }
+  .col-3-of-4 {
+    grid-column: span 9;
   }
 
-  .col-3-of-4 {
-    width: calc(
-      3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
-    );
+  @include respond(tab-port) {
+    [class^="col-"] {
+      grid-column: 1 / -1;
+    }
   }
 }
 

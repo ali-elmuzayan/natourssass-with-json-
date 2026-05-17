@@ -30,6 +30,17 @@
     z-index: 110;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.15);
     cursor: pointer;
+
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+    @include respond(phone) {
+      top: 2.5rem;
+      right: 2.5rem;
+      width: 5rem;
+      height: 5rem;
+    }
   }
   &-background {
     width: 6rem;
@@ -45,7 +56,18 @@
     border-radius: 50%;
     z-index: 100;
     scale: 0.9;
-    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); // easings.net or cubic-bazier.com
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+    @include respond(tab-port) {
+      top: 4rem;
+      right: 4rem;
+    }
+    @include respond(phone) {
+      top: 2.5rem;
+      right: 2.5rem;
+      width: 5rem;
+      height: 5rem;
+    }
   }
   &-nav {
     width: 0;

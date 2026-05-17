@@ -1,25 +1,37 @@
 .header {
-  background-image: linear-gradient(
+  position: relative;
+  background-image:
+    linear-gradient(
       to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)
+      rgba($color-primary-light, 0.85),
+      rgba($color-primary-dark, 0.85)
     ),
     url("./../img/hero-small.jpg");
   background-size: cover;
-  background-position: top; /* which mean the top of the image will still the same as we change the size */
-  padding: 1.2rem;
+  background-position: top;
+  padding: 2.4rem 3.2rem;
   min-height: 95vh;
   -webkit-clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
   clip-path: polygon(0 0, 0 100%, 100% 75vh, 100% 0);
-  // move from x and Y directions
+
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    min-height: 95vh;
+  }
+
+  @include respond(phone) {
+    clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 85vh, 100% 0);
+    padding: 1.6rem;
+  }
 
   &-logo-box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .logo {
-    height: 2.8rem;
+    height: 3.5rem;
     transition: 0.3s;
   }
   .logo:hover {

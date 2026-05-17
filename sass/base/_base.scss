@@ -40,3 +40,23 @@ body {
   background-color: $color-primary;
   color: $color-white;
 }
+
+// ===== Media defaults: prevent overflow & layout shift =====
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ===== Respect users who prefer reduced motion =====
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

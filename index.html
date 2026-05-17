@@ -2,15 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Natours — outdoor tours for adventurous people. Discover destinations, meet nature and book your next adventure." />
+    <meta name="theme-color" content="#55c57a" />
+
+    <!-- Preconnect to font CDNs (DNS + TLS handshake done early) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Only Lato is actually used by the stylesheet; trim the request -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Figtree:ital,wght@0,300..900;1,300..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="./css/animation.css" />
-    <link rel="stylesheet" href="./css/general.css" /> -->
+
+    <!-- Speed up Largest Contentful Paint by preloading the hero image -->
+    <link rel="preload" as="image" href="img/hero-small.jpg" fetchpriority="high" />
+
+    <link rel="icon" href="img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="./css/icon-font.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Natours App</title>
@@ -50,7 +59,14 @@
     <header class="header">
       <div class="header-logo-box">
         <a href="https://www.ali-elmuzayan.com" target="_blank"
-          ><img src="img/logo-white.png" alt="Natours logo" class="logo"
+          ><img
+          src="img/logo-white.png"
+          alt="Natours logo"
+          class="logo"
+          width="195"
+          height="100"
+          fetchpriority="high"
+          decoding="async"
         /></a>
         <div></div>
       </div>
@@ -104,16 +120,22 @@
                 src="img/nat-1-large.jpg"
                 alt="A view for a river and some tree"
                 class="composition-img composition-img-p1"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="img/nat-2-large.jpg"
                 alt="A man ride a cycle"
                 class="composition-img composition-img-p2"
+                loading="lazy"
+                decoding="async"
               />
               <img
                 src="img/nat-3-large.jpg"
                 alt="A women stand in front of the mount"
                 class="composition-img composition-img-p3"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -360,9 +382,18 @@
       <!-- Stories section start  -->
       <section class="section-stories">
         <div class="bg-video">
-          <video class="bg-video-content" autoplay muted loop playsinline>
-            <source src="img/video.mp4" type="video/mp4" />
+          <video
+            class="bg-video-content"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="img/nat-4.jpg"
+          >
+            <!-- webm first so capable browsers pick the smaller file -->
             <source src="img/video.webm" type="video/webm" />
+            <source src="img/video.mp4" type="video/mp4" />
             Your browser is not supported!
           </video>
         </div>
@@ -376,6 +407,8 @@
                 src="img/nat-8.jpg"
                 alt="Person on a tour"
                 class="story-img"
+                loading="lazy"
+                decoding="async"
               />
               <figcaption class="story-caption">Mary Smith</figcaption>
             </figure>
@@ -397,6 +430,8 @@
                 src="img/nat-9.jpg"
                 alt="Person on a tour"
                 class="story-img"
+                loading="lazy"
+                decoding="async"
               />
               <figcaption class="story-caption">Mary Smith</figcaption>
             </figure>
@@ -425,28 +460,28 @@
         </div>
         <div class="gallery">
           <figure class="gallery-item gallery-item-1">
-            <img src="img/nat-1-large.jpg" alt="River view through trees" class="gallery-img" />
+            <img src="img/nat-1-large.jpg" alt="River view through trees" class="gallery-img" loading="lazy" decoding="async" />
           </figure>
           <figure class="gallery-item gallery-item-2">
-            <img src="img/nat-2-large.jpg" alt="Cyclist on a mountain trail" class="gallery-img" />
+            <img src="img/nat-2-large.jpg" alt="Cyclist on a mountain trail" class="gallery-img" loading="lazy" decoding="async" />
           </figure>
           <figure class="gallery-item gallery-item-3">
-            <img src="img/nat-3-large.jpg" alt="Woman facing a mountain" class="gallery-img" />
+            <img src="img/nat-3-large.jpg" alt="Woman facing a mountain" class="gallery-img" loading="lazy" decoding="async" />
           </figure>
           <figure class="gallery-item gallery-item-4">
-            <img src="img/nat-5.jpg" alt="Sea cliffs at sunset" class="gallery-img" />
+            <img src="img/nat-5.jpg" alt="Sea cliffs at sunset" class="gallery-img" loading="lazy" decoding="async" />
           </figure>
           <figure class="gallery-item gallery-item-5">
-            <img src="img/nat-6.jpg" alt="Forest pathway" class="gallery-img" />
+            <img src="img/nat-6.jpg" alt="Forest pathway" class="gallery-img" loading="lazy" decoding="async" />
           </figure>
           <figure class="gallery-item gallery-item-6">
-            <img src="img/nat-7.jpg" alt="Snowy peaks" class="gallery-img" />
+            <img src="img/nat-7.jpg" alt="Snowy peaks" class="gallery-img" loading="lazy" decoding="async" />
           </figure>
           <figure class="gallery-item gallery-item-7">
-            <img src="img/nat-10.jpg" alt="Lakeside camp" class="gallery-img" />
+            <img src="img/nat-10.jpg" alt="Lakeside camp" class="gallery-img" loading="lazy" decoding="async" />
           </figure>
           <figure class="gallery-item gallery-item-8">
-            <img src="img/nat-4.jpg" alt="Hikers on a ridge" class="gallery-img" />
+            <img src="img/nat-4.jpg" alt="Hikers on a ridge" class="gallery-img" loading="lazy" decoding="async" />
           </figure>
         </div>
       </section>
@@ -501,44 +536,50 @@
     <!-- Footer start -->
 
     <footer class="footer">
-      <div class="footer-logo-box">
-        <img src="img/logo-green-2x.png" alt="Full logo" class="footer-logo" />
-      </div>
-      <div class="row">
-        <div class="col-1-of-2">
-          <div class="footer-navigation">
-            <ul class="footer-list">
-              <li class="footer-item">
-                <a href="#" class="footer-link">Company</a>
-              </li>
-              <li class="footer-item">
-                <a href="#" class="footer-link">Contact us</a>
-              </li>
-              <li class="footer-item">
-                <a href="#" class="footer-link">Carrers</a>
-              </li>
-              <li class="footer-item">
-                <a href="#" class="footer-link">Privacy policy</a>
-              </li>
-              <li class="footer-item">
-                <a href="#" class="footer-link">Terms</a>
-              </li>
-            </ul>
-          </div>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img
+            src="img/logo-green-2x.png"
+            srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+            alt="Natours logo"
+            class="footer-logo"
+            width="150"
+            height="119"
+            loading="lazy"
+            decoding="async"
+          />
+          <p class="footer-tagline">
+            Outdoor tours for adventurous people — discover destinations,
+            meet nature and book your next adventure.
+          </p>
         </div>
-        <div class="col-1-of-2">
-          <p class="footer-copyright">
-            Built by
-            <a href="#" class="footer-link u-text-upper">eng.Ali ahmed</a>
-          </p>
-          <p>
-            design by the
-            <a href="#" class="footer-link u-text-upper">
-              Jonas Schemedtemann
-            </a>
-            on his course
-            <span class="u-text-upper">Advanced CSS and Sass</span>
-          </p>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-cols">
+          <nav class="footer-navigation" aria-label="Footer">
+            <ul class="footer-list">
+              <li class="footer-item"><a href="#" class="footer-link">Company</a></li>
+              <li class="footer-item"><a href="#" class="footer-link">Contact us</a></li>
+              <li class="footer-item"><a href="#" class="footer-link">Careers</a></li>
+              <li class="footer-item"><a href="#" class="footer-link">Privacy policy</a></li>
+              <li class="footer-item"><a href="#" class="footer-link">Terms</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-credits">
+            <p>
+              Built by
+              <a href="https://www.ali-elmuzayan.com" target="_blank" rel="noopener" class="footer-link u-text-upper">eng. Ali Ahmed</a>
+            </p>
+            <p>
+              Design by
+              <a href="#" class="footer-link u-text-upper">Jonas Schmedtmann</a>
+              — course
+              <span class="u-text-upper">Advanced CSS and Sass</span>
+            </p>
+            <p class="footer-copy">&copy; 2026 Natours. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </footer>

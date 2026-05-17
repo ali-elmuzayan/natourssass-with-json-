@@ -1,0 +1,157 @@
+// ============================================
+// Booking form (glassmorphic card)
+// ============================================
+.book {
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-white, 0.92) 0%,
+      rgba($color-white, 0.92) 50%,
+      transparent 50%
+    ),
+    url("./../img/nat-10.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  height: 50rem;
+  overflow: hidden;
+
+  @include respond(tab-land) {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-white, 0.92) 0%,
+        rgba($color-white, 0.92) 65%,
+        transparent 65%
+      ),
+      url("./../img/nat-10.jpg");
+  }
+  @include respond(tab-port) {
+    background-image: linear-gradient(
+        to right,
+        rgba($color-white, 0.92) 0%,
+        rgba($color-white, 0.92) 100%
+      ),
+      url("./../img/nat-10.jpg");
+    height: auto;
+  }
+
+  &-form {
+    width: 50%;
+    padding: 6rem;
+
+    @include respond(tab-land) { width: 65%; }
+    @include respond(tab-port) { width: 100%; padding: 5rem 4rem; }
+    @include respond(phone)    { padding: 4rem 2.5rem; }
+  }
+}
+
+.form {
+  &-group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &-input {
+    font-family: inherit;
+    color: inherit;
+    font-size: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-radius: $radius-md;
+    background-color: rgba($color-white, 0.6);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    display: block;
+    transition: all 0.25s ease;
+
+    @include respond(tab-port) { width: 100%; }
+
+    &:focus {
+      outline: none;
+      box-shadow: $shadow-md;
+      border-bottom: 3px solid $color-primary;
+      background-color: $color-white;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    &::placeholder {
+      color: $color-grey-dark-2;
+    }
+
+    &:placeholder-shown + .form-label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4rem);
+    }
+  }
+
+  &-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    text-transform: uppercase;
+    color: $color-grey-dark;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+  }
+
+  // ---------- Radio ----------
+  &-radio-group {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  &-radio {
+    display: inline-block;
+  }
+
+  &-radio-input {
+    display: none;
+
+    &:checked + .form-radio-label .form-radio-button::after {
+      opacity: 1;
+    }
+  }
+
+  &-radio-label {
+    font-size: $default-font-size;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  &-radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 4px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &::after {
+      content: "";
+      display: block;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      background-color: $color-primary;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  }
+}

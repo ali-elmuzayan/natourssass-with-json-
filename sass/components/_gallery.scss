@@ -1,0 +1,73 @@
+// ============================================
+// Destinations gallery (CSS Grid mosaic)
+// ============================================
+.gallery {
+  max-width: $grid-width;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 22rem;
+  gap: 1.5rem;
+
+  @include respond(tab-port) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 18rem;
+  }
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 22rem;
+    padding: 0 2rem;
+  }
+
+  &-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: $radius-md;
+    box-shadow: $shadow-md;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba($color-black, 0.4),
+        transparent 60%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &:hover {
+      transform: translateY(-0.6rem) scale(1.02);
+      box-shadow: 0 2.5rem 5rem rgba($color-black, 0.25);
+      z-index: 2;
+    }
+
+    &:hover::after { opacity: 1; }
+  }
+
+  // Mosaic placements (desktop only)
+  &-item-1 { grid-column: span 2; grid-row: span 2; }
+  &-item-4 { grid-row: span 2; }
+  &-item-7 { grid-column: span 2; }
+
+  @include respond(tab-port) {
+    &-item-1, &-item-4, &-item-7 { grid-column: auto; grid-row: auto; }
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease, filter 0.4s ease;
+  }
+
+  &-item:hover &-img {
+    transform: scale(1.08);
+    filter: brightness(1.05) saturate(1.1);
+  }
+}

@@ -53,10 +53,64 @@
   }
 }
 
+.section-stats {
+  position: relative;
+  z-index: 5;
+  padding: 0 3rem;
+  margin-top: -8rem;
+
+  @include respond(tab-port) {
+    margin-top: -5rem;
+  }
+}
+
 .section-stories {
   position: relative;
   background-color: $color-grey-light-1;
   padding: 15rem 0;
+  overflow: hidden;
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
+  @include respond(phone) {
+    padding: 8rem 0;
+  }
+}
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.18;
+  overflow: hidden;
+
+  &-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.section-gallery {
+  padding: 12rem 0;
+  background-color: $color-white;
+
+  @include respond(tab-port) {
+    padding: 8rem 0;
+  }
+  @include respond(phone) {
+    padding: 6rem 0;
+  }
+}
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-primary-light,
+    $color-primary-dark
+  );
 
   @include respond(tab-port) {
     padding: 10rem 0;

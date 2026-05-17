@@ -1,0 +1,69 @@
+// ============================================
+// Stats strip
+// ============================================
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  width: 100%;
+  padding: 4rem 3rem;
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  transform: translateY(-50%);
+
+  @include respond(tab-port) {
+    grid-template-columns: repeat(2, 1fr);
+    transform: translateY(-30%);
+    padding: 3rem 2rem;
+  }
+  @include respond(phone) {
+    transform: translateY(-15%);
+    gap: 2rem;
+  }
+}
+
+.stat {
+  text-align: center;
+  padding: 1rem 1.5rem;
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: $color-grey-light-2;
+
+    @include respond(tab-port) { display: none; }
+  }
+
+  &-number {
+    font-size: 4.4rem;
+    font-weight: 700;
+    line-height: 1;
+    background-image: linear-gradient(
+      to right,
+      $color-primary,
+      $color-primary-dark
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    span {
+      font-size: 2rem;
+      margin-left: 0.2rem;
+    }
+  }
+
+  &-label {
+    margin-top: 0.8rem;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    letter-spacing: 0.15em;
+    color: $color-grey-dark;
+  }
+}

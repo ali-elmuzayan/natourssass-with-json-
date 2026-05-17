@@ -49,6 +49,32 @@ video {
   display: block;
 }
 
+// ===== Global focus-visible (keyboard accessibility) =====
+:focus-visible {
+  outline: 2px solid $color-primary-dark;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+// ===== Skip-to-content link (visible only on keyboard focus) =====
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 1000;
+  background-color: $color-primary-dark;
+  color: $color-white;
+  padding: 1rem 1.6rem;
+  border-radius: $radius-md;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.2s ease;
+
+  &:focus {
+    top: 1rem;
+  }
+}
+
 // ===== Respect users who prefer reduced motion =====
 @media (prefers-reduced-motion: reduce) {
   *,

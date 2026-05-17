@@ -1,0 +1,238 @@
+// ============================================
+// Dark theme overrides
+// Applied via <html data-theme="dark">. Brand greens are preserved;
+// only neutral surfaces, text, and divider colors flip.
+// ============================================
+
+// Dark palette tokens (kept local to this file)
+$dark-bg:          #0f1419; // app background
+$dark-surface:     #1a2129; // cards / sections that were grey-light-1 or white
+$dark-surface-2:   #243038; // elevated layers (feature card etc.)
+$dark-divider:     rgba($color-white, 0.08);
+$dark-text:        rgba($color-white, 0.85);
+$dark-text-muted:  rgba($color-white, 0.6);
+
+[data-theme="dark"] {
+  // ---------- Base ----------
+  background-color: $dark-bg;
+  color: $dark-text;
+  color-scheme: dark;
+
+  body {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+
+  // ---------- Sections ----------
+  .section-about,
+  .section-tours,
+  .section-stories {
+    background-color: $dark-surface;
+  }
+
+  .section-gallery {
+    background-color: $dark-bg;
+  }
+
+  // ---------- Paragraphs & body copy ----------
+  .paragraph,
+  .heading-tertiary {
+    color: $dark-text;
+  }
+
+  // ---------- Feature cards ----------
+  .feature-card {
+    background-color: rgba($dark-surface-2, 0.85);
+    color: $dark-text;
+    box-shadow: 0 1rem 2.4rem rgba(#000, 0.4);
+
+    &:hover {
+      box-shadow: 0 2.5rem 5rem rgba(#000, 0.55);
+    }
+  }
+
+  // ---------- Tour cards ----------
+  .card-side-front {
+    background-color: $dark-surface;
+  }
+
+  .card-details ul li {
+    color: $dark-text;
+
+    &:not(:last-child) {
+      border-bottom-color: $dark-divider;
+    }
+  }
+
+  // The flattened card on tab-port/touch
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    .card {
+      background-color: $dark-surface;
+      box-shadow: 0 1rem 2.4rem rgba(#000, 0.4);
+    }
+  }
+
+  // ---------- Stats strip ----------
+  .stats {
+    background-color: $dark-surface;
+    box-shadow: 0 1.6rem 4rem rgba(#000, 0.45);
+  }
+
+  .stat-label {
+    color: $dark-text-muted;
+  }
+
+  .stat:not(:last-child)::after {
+    background-color: $dark-divider;
+  }
+
+  // ---------- Stories ----------
+  .story {
+    background-color: $dark-surface;
+    color: $dark-text;
+    box-shadow: 0 1.6rem 4rem rgba(#000, 0.4);
+  }
+
+  // ---------- Booking ----------
+  .book {
+    background-image:
+      linear-gradient(
+        105deg,
+        rgba($dark-surface, 0.94) 0%,
+        rgba($dark-surface, 0.94) 50%,
+        transparent 50%
+      ),
+      url("./../img/nat-10.jpg");
+
+    @include respond(tab-land) {
+      background-image:
+        linear-gradient(
+          105deg,
+          rgba($dark-surface, 0.94) 0%,
+          rgba($dark-surface, 0.94) 65%,
+          transparent 65%
+        ),
+        url("./../img/nat-10.jpg");
+    }
+    @include respond(tab-port) {
+      background-image:
+        linear-gradient(
+          to right,
+          rgba($dark-surface, 0.94) 0%,
+          rgba($dark-surface, 0.94) 100%
+        ),
+        url("./../img/nat-10.jpg");
+    }
+  }
+
+  // Combo: RTL + dark for the book diagonal
+  &[dir="rtl"] .book {
+    background-image:
+      linear-gradient(
+        255deg,
+        rgba($dark-surface, 0.94) 0%,
+        rgba($dark-surface, 0.94) 50%,
+        transparent 50%
+      ),
+      url("./../img/nat-10.jpg");
+
+    @include respond(tab-land) {
+      background-image:
+        linear-gradient(
+          255deg,
+          rgba($dark-surface, 0.94) 0%,
+          rgba($dark-surface, 0.94) 65%,
+          transparent 65%
+        ),
+        url("./../img/nat-10.jpg");
+    }
+    @include respond(tab-port) {
+      background-image:
+        linear-gradient(
+          to left,
+          rgba($dark-surface, 0.94) 0%,
+          rgba($dark-surface, 0.94) 100%
+        ),
+        url("./../img/nat-10.jpg");
+    }
+  }
+
+  // ---------- Form ----------
+  .form-input {
+    background-color: rgba($dark-bg, 0.6);
+    color: $dark-text;
+
+    &:focus {
+      background-color: rgba($dark-bg, 0.85);
+    }
+    &::placeholder {
+      color: rgba($color-white, 0.35);
+    }
+  }
+
+  .form-label {
+    color: $dark-text-muted;
+  }
+
+  .form-radio-label {
+    color: $dark-text;
+  }
+
+  // ---------- Floating pill ----------
+  .lang-switch {
+    background-color: rgba($dark-surface, 0.92);
+    box-shadow: 0 1rem 2.4rem rgba(#000, 0.5);
+  }
+
+  .lang-switch-btn {
+    color: rgba($color-white, 0.75);
+
+    &:hover { color: $color-primary-light; }
+  }
+
+  .lang-switch-sep {
+    background-color: rgba($color-white, 0.15);
+  }
+
+  .theme-toggle-btn {
+    color: rgba($color-white, 0.85);
+
+    &:hover {
+      color: $color-primary-light;
+      background-color: rgba($color-white, 0.08);
+    }
+  }
+
+  // ---------- Navigation hamburger ----------
+  .navigation-button {
+    background-color: $dark-surface;
+    box-shadow: 0 1rem 3rem rgba(#000, 0.5);
+  }
+
+  .navigation-icon,
+  .navigation-icon::before,
+  .navigation-icon::after {
+    background-color: rgba($color-white, 0.9);
+  }
+
+  // ---------- Stories bg-video (less washed in dark) ----------
+  .bg-video {
+    opacity: 0.12;
+  }
+
+  // ---------- btn-text (about/stories CTAs) ----------
+  .btn-text {
+    color: $color-primary-light;
+    border-bottom-color: $color-primary-light;
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-primary;
+    }
+  }
+
+  // ---------- Footer is dark already; soften top gradient ----------
+  .footer {
+    background-color: #0a0d11;
+  }
+}

@@ -32,7 +32,10 @@
     }
   }
 
-  // Nav link gradient sweeps from the opposite side
+  // Nav link gradient mirrored for RTL.
+  // The angle is flipped to -120deg so the white half lives on the lower-LEFT,
+  // and we invert the start/end background-position so the link looks transparent
+  // at rest and the white wipes across on hover — mirroring the LTR behaviour.
   .navigation-link {
     background-image: linear-gradient(
       -120deg,
@@ -40,14 +43,12 @@
       transparent 50%,
       $color-white 50%
     );
-
-    & span {
-      margin-right: 0;
-      margin-left: 1.5rem;
-    }
+    background-position: 100%;
+    // span margin uses margin-inline-end in the base rule so it flips automatically
 
     &:hover,
     &:active {
+      background-position: 0;
       transform: translateX(-1rem);
     }
   }

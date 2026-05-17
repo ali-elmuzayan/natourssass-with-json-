@@ -105,7 +105,8 @@
     }
 
     &-back {
-      background-color: blue;
+      // Fallback color, overridden by .card-primary / -secondary / -tertiary modifiers
+      background-color: $color-primary;
       transform: rotateY(180deg);
       display: flex;
       flex-direction: column;

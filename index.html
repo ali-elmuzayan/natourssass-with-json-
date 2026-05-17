@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Natours — outdoor tours for adventurous people. Discover destinations, meet nature and book your next adventure." />
+    <meta
+      name="description"
+      content="Natours — outdoor tours for adventurous people. Discover destinations, meet nature and book your next adventure."
+    />
     <meta name="theme-color" content="#55c57a" />
 
     <!-- Preconnect to font CDNs (DNS + TLS handshake done early) -->
@@ -17,19 +20,94 @@
     />
 
     <!-- Speed up Largest Contentful Paint by preloading the hero image -->
-    <link rel="preload" as="image" href="img/hero-small.jpg" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="img/hero-small.jpg"
+      fetchpriority="high"
+    />
 
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="./css/icon-font.css" />
     <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Apply theme BEFORE first paint to avoid a flash of incorrect theme -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("natours.theme");
+          var prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches;
+          var theme = saved || (prefersDark ? "dark" : "light");
+          if (theme === "dark")
+            document.documentElement.setAttribute("data-theme", "dark");
+        } catch (_) {}
+      })();
+    </script>
     <script defer src="./js/i18n.js"></script>
+    <script defer src="./js/theme.js"></script>
+    <script defer src="./js/ui.js"></script>
     <title>Natours App</title>
   </head>
   <body>
-    <!-- Language switcher -->
-    <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="lang.label">
-      <button type="button" class="lang-switch-btn" data-lang="en" aria-label="English">EN</button>
-      <button type="button" class="lang-switch-btn" data-lang="ar" aria-label="العربية">ع</button>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Floating UI: language + theme controls -->
+    <div class="lang-switch" role="group" aria-label="Language and theme">
+      <button
+        type="button"
+        class="lang-switch-btn"
+        data-lang="en"
+        aria-label="English"
+      >
+        EN
+      </button>
+      <button
+        type="button"
+        class="lang-switch-btn"
+        data-lang="ar"
+        aria-label="العربية"
+      >
+        ع
+      </button>
+      <span class="lang-switch-sep" aria-hidden="true"></span>
+      <button
+        type="button"
+        class="theme-toggle-btn"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+      >
+        <!-- Sun (shown in dark mode) -->
+        <svg
+          class="theme-icon theme-icon--sun"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+          />
+        </svg>
+        <!-- Moon (shown in light mode) -->
+        <svg
+          class="theme-icon theme-icon--moon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
     </div>
 
     <!-- navigation start here  -->
@@ -43,20 +121,31 @@
         <ul class="navigation-list">
           <li class="navigation-item">
             <a href="#" class="navigation-link"
-              ><span>01</span><span data-i18n="nav.about">About Natours</span></a
+              ><span>01</span
+              ><span data-i18n="nav.about">About Natours</span></a
             >
           </li>
           <li class="navigation-item">
-            <a href="#" class="navigation-link"><span>02</span><span data-i18n="nav.benefits">Your benefits</span></a>
+            <a href="#" class="navigation-link"
+              ><span>02</span
+              ><span data-i18n="nav.benefits">Your benefits</span></a
+            >
           </li>
           <li class="navigation-item">
-            <a href="#" class="navigation-link"><span>03</span><span data-i18n="nav.tours">Popular tours</span></a>
+            <a href="#" class="navigation-link"
+              ><span>03</span
+              ><span data-i18n="nav.tours">Popular tours</span></a
+            >
           </li>
           <li class="navigation-item">
-            <a href="#" class="navigation-link"><span>04</span><span data-i18n="nav.stories">Stories</span></a>
+            <a href="#" class="navigation-link"
+              ><span>04</span><span data-i18n="nav.stories">Stories</span></a
+            >
           </li>
           <li class="navigation-item">
-            <a href="#" class="navigation-link"><span>05</span><span data-i18n="nav.book">Book now</span></a>
+            <a href="#" class="navigation-link"
+              ><span>05</span><span data-i18n="nav.book">Book now</span></a
+            >
           </li>
         </ul>
       </nav>
@@ -67,28 +156,34 @@
       <div class="header-logo-box">
         <a href="https://www.ali-elmuzayan.com" target="_blank"
           ><img
-          src="img/logo-white.png"
-          alt="Natours logo"
-          class="logo"
-          width="195"
-          height="100"
-          fetchpriority="high"
-          decoding="async"
+            src="img/logo-white.png"
+            alt="Natours logo"
+            class="logo"
+            width="195"
+            height="100"
+            fetchpriority="high"
+            decoding="async"
         /></a>
         <div></div>
       </div>
       <div class="header-text-box">
         <h1 class="heading-primary">
-          <span class="heading-primary-main" data-i18n="header.title">Outdoors</span>
-          <span class="heading-primary-sub" data-i18n="header.subtitle">Is where life happens</span>
+          <span class="heading-primary-main" data-i18n="header.title"
+            >Outdoors</span
+          >
+          <span class="heading-primary-sub" data-i18n="header.subtitle"
+            >Is where life happens</span
+          >
         </h1>
-        <a href="#" class="btn btn-white btn-animated" data-i18n="header.cta">Discover our tours</a>
+        <a href="#" class="btn btn-white btn-animated" data-i18n="header.cta"
+          >Discover our tours</a
+        >
       </div>
     </header>
     <!-- HEADER end -->
 
     <!-- MAIN start -->
-    <main>
+    <main id="main">
       <!-- About section start  -->
       <section class="section-about">
         <div class="u-center-text u-mb-l">
@@ -111,7 +206,10 @@
             <p class="paragraph" data-i18n="about.text2">
               Join expert guides on small-group expeditions.
             </p>
-            <a href="#" class="btn-text text-color-primary-light" data-i18n="about.learn"
+            <a
+              href="#"
+              class="btn-text text-color-primary-light"
+              data-i18n="about.learn"
               >Learn more &rarr;</a
             >
           </div>
@@ -150,7 +248,12 @@
           <div class="col-1-of-4">
             <div class="feature-card">
               <i class="icon icon-basic-world"></i>
-              <h3 class="heading-tertiary u-mb-s" data-i18n="feature.world.title">Explore the world</h3>
+              <h3
+                class="heading-tertiary u-mb-s"
+                data-i18n="feature.world.title"
+              >
+                Explore the world
+              </h3>
               <p class="paragraph" data-i18n="feature.world.text">
                 Travel beyond the postcard.
               </p>
@@ -159,7 +262,12 @@
           <div class="col-1-of-4">
             <div class="feature-card">
               <i class="icon icon-basic-compass"></i>
-              <h3 class="heading-tertiary u-mb-s" data-i18n="feature.nature.title">Meet nature</h3>
+              <h3
+                class="heading-tertiary u-mb-s"
+                data-i18n="feature.nature.title"
+              >
+                Meet nature
+              </h3>
               <p class="paragraph" data-i18n="feature.nature.text">
                 Sleep under starlight.
               </p>
@@ -168,7 +276,9 @@
           <div class="col-1-of-4">
             <div class="feature-card">
               <i class="icon icon-basic-map"></i>
-              <h3 class="heading-tertiary u-mb-s" data-i18n="feature.way.title">Find your way</h3>
+              <h3 class="heading-tertiary u-mb-s" data-i18n="feature.way.title">
+                Find your way
+              </h3>
               <p class="paragraph" data-i18n="feature.way.text">
                 Our guides handle the logistics.
               </p>
@@ -177,7 +287,12 @@
           <div class="col-1-of-4">
             <div class="feature-card">
               <i class="icon icon-basic-heart"></i>
-              <h3 class="heading-tertiary u-mb-s" data-i18n="feature.health.title">Live a healthier life</h3>
+              <h3
+                class="heading-tertiary u-mb-s"
+                data-i18n="feature.health.title"
+              >
+                Live a healthier life
+              </h3>
               <p class="paragraph" data-i18n="feature.health.text">
                 Walking, climbing and breathing clean air.
               </p>
@@ -193,11 +308,15 @@
           <div class="stats">
             <div class="stat">
               <p class="stat-number">120<span>+</span></p>
-              <p class="stat-label" data-i18n="stats.destinations">Destinations</p>
+              <p class="stat-label" data-i18n="stats.destinations">
+                Destinations
+              </p>
             </div>
             <div class="stat">
               <p class="stat-number">25<span>k</span></p>
-              <p class="stat-label" data-i18n="stats.travelers">Happy travelers</p>
+              <p class="stat-label" data-i18n="stats.travelers">
+                Happy travelers
+              </p>
             </div>
             <div class="stat">
               <p class="stat-number">4.9<span>/5</span></p>
@@ -205,7 +324,9 @@
             </div>
             <div class="stat">
               <p class="stat-number">15<span>yrs</span></p>
-              <p class="stat-label" data-i18n="stats.experience">Of experience</p>
+              <p class="stat-label" data-i18n="stats.experience">
+                Of experience
+              </p>
             </div>
           </div>
         </div>
@@ -213,9 +334,11 @@
       <!-- Stats section end -->
 
       <!-- Tours section start  -->
-      <div class="section-tours">
+      <section class="section-tours">
         <div class="u-center-text u-mb-l">
-          <h2 class="heading-secondary" data-i18n="tours.heading">Most Popular Tours</h2>
+          <h2 class="heading-secondary" data-i18n="tours.heading">
+            Most Popular Tours
+          </h2>
         </div>
 
         <div class="row">
@@ -224,7 +347,10 @@
               <div class="card-side card-side-front">
                 <div class="card-img card-img-1"></div>
                 <h4 class="card-heading">
-                  <span class="card-heading-span card-heading-span-1" data-i18n="tours.t1.title">
+                  <span
+                    class="card-heading-span card-heading-span-1"
+                    data-i18n="tours.t1.title"
+                  >
                     The Sea Explorer
                   </span>
                 </h4>
@@ -244,7 +370,9 @@
                     <p class="card-price-only" data-i18n="tours.only">Only</p>
                     <p class="card-price-value">$297</p>
                   </div>
-                  <a href="#" class="btn btn-white" data-i18n="tours.book">Book now!</a>
+                  <a href="#" class="btn btn-white" data-i18n="tours.book"
+                    >Book now!</a
+                  >
                 </div>
               </div>
             </div>
@@ -254,7 +382,10 @@
               <div class="card-side card-side-front">
                 <div class="card-img card-img-2"></div>
                 <h4 class="card-heading">
-                  <span class="card-heading-span card-heading-span-2" data-i18n="tours.t2.title">
+                  <span
+                    class="card-heading-span card-heading-span-2"
+                    data-i18n="tours.t2.title"
+                  >
                     The Forest Hiker
                   </span>
                 </h4>
@@ -274,7 +405,9 @@
                     <p class="card-price-only" data-i18n="tours.only">Only</p>
                     <p class="card-price-value">$497</p>
                   </div>
-                  <a href="#" class="btn btn-white" data-i18n="tours.book">Book now!</a>
+                  <a href="#" class="btn btn-white" data-i18n="tours.book"
+                    >Book now!</a
+                  >
                 </div>
               </div>
             </div>
@@ -284,7 +417,10 @@
               <div class="card-side card-side-front">
                 <div class="card-img card-img-3"></div>
                 <h4 class="card-heading">
-                  <span class="card-heading-span card-heading-span-3" data-i18n="tours.t3.title">
+                  <span
+                    class="card-heading-span card-heading-span-3"
+                    data-i18n="tours.t3.title"
+                  >
                     The Snow Adventurer
                   </span>
                 </h4>
@@ -304,7 +440,9 @@
                     <p class="card-price-only" data-i18n="tours.only">Only</p>
                     <p class="card-price-value">$897</p>
                   </div>
-                  <a href="#" class="btn btn-white" data-i18n="tours.book">Book now!</a>
+                  <a href="#" class="btn btn-white" data-i18n="tours.book"
+                    >Book now!</a
+                  >
                 </div>
               </div>
             </div>
@@ -371,10 +509,12 @@
         </div> -->
 
         <div class="u-center-text u-mt-xl">
-          <a href="#" class="btn btn-green" data-i18n="tours.discover">Discover all tours</a>
+          <a href="#" class="btn btn-green" data-i18n="tours.discover"
+            >Discover all tours</a
+          >
         </div>
-      </div>
-      <!-- Torus section end  -->
+      </section>
+      <!-- Tours section end  -->
 
       <!-- Stories section start  -->
       <section class="section-stories">
@@ -395,7 +535,9 @@
           </video>
         </div>
         <div class="u-center-text u-mb-l">
-          <h2 class="heading-secondary" data-i18n="stories.heading">We make people genuinely happy</h2>
+          <h2 class="heading-secondary" data-i18n="stories.heading">
+            We make people genuinely happy
+          </h2>
         </div>
         <div class="row">
           <div class="story">
@@ -413,9 +555,7 @@
               <h3 class="heading-tertiary u-mb-s" data-i18n="stories.s1.title">
                 I had the best week ever with my family
               </h3>
-              <p data-i18n="stories.s1.text">
-                Every detail was thoughtful.
-              </p>
+              <p data-i18n="stories.s1.text">Every detail was thoughtful.</p>
             </div>
           </div>
         </div>
@@ -442,41 +582,92 @@
           </div>
         </div>
         <div class="u-center-text u-mt-xl">
-          <a href="#" class="btn-text" data-i18n="stories.readAll">Read all stories &rarr;</a>
+          <a href="#" class="btn-text" data-i18n="stories.readAll"
+            >Read all stories &rarr;</a
+          >
         </div>
-      </div>
       </section>
       <!-- Stories section end  -->
 
       <!-- Gallery section start -->
       <section class="section-gallery">
         <div class="u-center-text u-mb-l">
-          <h2 class="heading-secondary" data-i18n="gallery.heading">Destinations our guests love</h2>
+          <h2 class="heading-secondary" data-i18n="gallery.heading">
+            Destinations our guests love
+          </h2>
         </div>
         <div class="gallery">
           <figure class="gallery-item gallery-item-1">
-            <img src="img/nat-1-large.jpg" alt="River view through trees" class="gallery-img" loading="lazy" decoding="async" />
+            <img
+              src="img/nat-1-large.jpg"
+              alt="River view through trees"
+              class="gallery-img"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
           <figure class="gallery-item gallery-item-2">
-            <img src="img/nat-2-large.jpg" alt="Cyclist on a mountain trail" class="gallery-img" loading="lazy" decoding="async" />
+            <img
+              src="img/nat-2-large.jpg"
+              alt="Cyclist on a mountain trail"
+              class="gallery-img"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
           <figure class="gallery-item gallery-item-3">
-            <img src="img/nat-3-large.jpg" alt="Woman facing a mountain" class="gallery-img" loading="lazy" decoding="async" />
+            <img
+              src="img/nat-3-large.jpg"
+              alt="Woman facing a mountain"
+              class="gallery-img"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
           <figure class="gallery-item gallery-item-4">
-            <img src="img/nat-5.jpg" alt="Sea cliffs at sunset" class="gallery-img" loading="lazy" decoding="async" />
+            <img
+              src="img/nat-5.jpg"
+              alt="Sea cliffs at sunset"
+              class="gallery-img"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
           <figure class="gallery-item gallery-item-5">
-            <img src="img/nat-6.jpg" alt="Forest pathway" class="gallery-img" loading="lazy" decoding="async" />
+            <img
+              src="img/nat-6.jpg"
+              alt="Forest pathway"
+              class="gallery-img"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
           <figure class="gallery-item gallery-item-6">
-            <img src="img/nat-7.jpg" alt="Snowy peaks" class="gallery-img" loading="lazy" decoding="async" />
+            <img
+              src="img/nat-7.jpg"
+              alt="Snowy peaks"
+              class="gallery-img"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
           <figure class="gallery-item gallery-item-7">
-            <img src="img/nat-10.jpg" alt="Lakeside camp" class="gallery-img" loading="lazy" decoding="async" />
+            <img
+              src="img/nat-10.jpg"
+              alt="Lakeside camp"
+              class="gallery-img"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
           <figure class="gallery-item gallery-item-8">
-            <img src="img/nat-4.jpg" alt="Hikers on a ridge" class="gallery-img" loading="lazy" decoding="async" />
+            <img
+              src="img/nat-4.jpg"
+              alt="Hikers on a ridge"
+              class="gallery-img"
+              loading="lazy"
+              decoding="async"
+            />
           </figure>
         </div>
       </section>
@@ -489,36 +680,74 @@
             <div class="book-form">
               <form action="#" class="form">
                 <div class="u-mb-m">
-                  <h2 class="heading-secondary" data-i18n="book.heading">Start booking now</h2>
+                  <h2 class="heading-secondary" data-i18n="book.heading">
+                    Start booking now
+                  </h2>
                 </div>
 
                 <div class="form-group">
-                  <input type="text" class="form-input" placeholder="Full name" id="name" required data-i18n-placeholder="book.name" />
-                  <label for="name" class="form-label" data-i18n="book.name">Full name</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="Full name"
+                    id="name"
+                    required
+                    data-i18n-placeholder="book.name"
+                  />
+                  <label for="name" class="form-label" data-i18n="book.name"
+                    >Full name</label
+                  >
                 </div>
 
                 <div class="form-group">
-                  <input type="email" class="form-input" placeholder="Email address" id="email" required data-i18n-placeholder="book.email" />
-                  <label for="email" class="form-label" data-i18n="book.email">Email address</label>
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="Email address"
+                    id="email"
+                    required
+                    data-i18n-placeholder="book.email"
+                  />
+                  <label for="email" class="form-label" data-i18n="book.email"
+                    >Email address</label
+                  >
                 </div>
 
                 <div class="form-group form-radio-group">
                   <div class="form-radio">
-                    <input type="radio" class="form-radio-input" id="small" name="size" />
+                    <input
+                      type="radio"
+                      class="form-radio-input"
+                      id="small"
+                      name="size"
+                    />
                     <label for="small" class="form-radio-label">
-                      <span class="form-radio-button"></span><span data-i18n="book.small">Small tour group</span>
+                      <span class="form-radio-button"></span
+                      ><span data-i18n="book.small">Small tour group</span>
                     </label>
                   </div>
                   <div class="form-radio">
-                    <input type="radio" class="form-radio-input" id="large" name="size" />
+                    <input
+                      type="radio"
+                      class="form-radio-input"
+                      id="large"
+                      name="size"
+                    />
                     <label for="large" class="form-radio-label">
-                      <span class="form-radio-button"></span><span data-i18n="book.large">Large tour group</span>
+                      <span class="form-radio-button"></span
+                      ><span data-i18n="book.large">Large tour group</span>
                     </label>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-green" data-i18n="book.next">Next step &rarr;</button>
+                  <button
+                    type="submit"
+                    class="btn btn-green"
+                    data-i18n="book.next"
+                  >
+                    Next step &rarr;
+                  </button>
                 </div>
               </form>
             </div>
@@ -544,8 +773,8 @@
             decoding="async"
           />
           <p class="footer-tagline" data-i18n="footer.tagline">
-            Outdoor tours for adventurous people — discover destinations,
-            meet nature and book your next adventure.
+            Outdoor tours for adventurous people — discover destinations, meet
+            nature and book your next adventure.
           </p>
         </div>
 
@@ -554,26 +783,56 @@
         <div class="footer-cols">
           <nav class="footer-navigation" aria-label="Footer">
             <ul class="footer-list">
-              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.company">Company</a></li>
-              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.contact">Contact us</a></li>
-              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.careers">Careers</a></li>
-              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.privacy">Privacy policy</a></li>
-              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.terms">Terms</a></li>
+              <li class="footer-item">
+                <a href="#" class="footer-link" data-i18n="footer.company"
+                  >Company</a
+                >
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link" data-i18n="footer.contact"
+                  >Contact us</a
+                >
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link" data-i18n="footer.careers"
+                  >Careers</a
+                >
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link" data-i18n="footer.privacy"
+                  >Privacy policy</a
+                >
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link" data-i18n="footer.terms"
+                  >Terms</a
+                >
+              </li>
             </ul>
           </nav>
 
           <div class="footer-credits">
             <p>
               <span data-i18n="footer.builtBy">Built by</span>
-              <a href="https://www.ali-elmuzayan.com" target="_blank" rel="noopener" class="footer-link u-text-upper">eng. Ali Ahmed</a>
+              <a
+                href="https://www.ali-elmuzayan.com"
+                target="_blank"
+                rel="noopener"
+                class="footer-link u-text-upper"
+                >eng. Ali Ahmed</a
+              >
             </p>
             <p>
               <span data-i18n="footer.designBy">Design by</span>
               <a href="#" class="footer-link u-text-upper">Jonas Schmedtmann</a>
               <span data-i18n="footer.course">— course</span>
-              <span class="u-text-upper" data-i18n="footer.courseName">Advanced CSS and Sass</span>
+              <span class="u-text-upper" data-i18n="footer.courseName"
+                >Advanced CSS and Sass</span
+              >
             </p>
-            <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 Natours. All rights reserved.</p>
+            <p class="footer-copy" data-i18n="footer.copy">
+              &copy; 2026 Natours. All rights reserved.
+            </p>
           </div>
         </div>
       </div>

@@ -22,5 +22,8 @@
 
 @import "pages/home";
 
+// Dark theme overrides — applied via <html data-theme="dark">
+@import "base/theme";
+
 // RTL overrides last so they win specificity (same selector + [dir="rtl"])
 @import "base/rtl";

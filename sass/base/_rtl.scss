@@ -1,0 +1,192 @@
+// ============================================
+// RTL overrides — applied when <html dir="rtl">
+// Mirrors directional layout for Arabic.
+// ============================================
+
+[dir="rtl"] {
+  // ---------- Typography ----------
+  font-family: "Tajawal", "Lato", sans-serif;
+  text-align: right;
+
+  // Loosen the Latin letter-spacing on the hero (Arabic letters don't get tracked)
+  .heading-primary-main,
+  .heading-primary-sub {
+    letter-spacing: 0;
+  }
+
+  .heading-secondary {
+    letter-spacing: 0;
+  }
+
+  // ---------- Navigation (move hamburger to the left) ----------
+  .navigation-button,
+  .navigation-background {
+    right: auto;
+    left: 6.5rem;
+
+    @include respond(tab-port) {
+      left: 4rem;
+    }
+    @include respond(phone) {
+      left: 2.5rem;
+    }
+  }
+
+  // Nav link gradient sweeps from the opposite side
+  .navigation-link {
+    background-image: linear-gradient(
+      -120deg,
+      transparent 0,
+      transparent 50%,
+      $color-white 50%
+    );
+
+    & span {
+      margin-right: 0;
+      margin-left: 1.5rem;
+    }
+
+    &:hover,
+    &:active {
+      transform: translateX(-1rem);
+    }
+  }
+
+  // ---------- Header ----------
+  .header-text-box {
+    text-align: center;
+  }
+
+  // ---------- Buttons / arrows ----------
+  // Arrows are baked into translations (←/→), so just keep alignment correct
+
+  // ---------- Composition (mirror absolute positions) ----------
+  .composition {
+    &-img-p1 {
+      left: auto;
+      right: 0;
+    }
+    &-img-p2 {
+      right: auto;
+      left: 0;
+    }
+    &-img-p3 {
+      left: auto;
+      right: 20%;
+    }
+  }
+
+  // ---------- Stories (flip the skew + float layout) ----------
+  .story {
+    transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: skewX(0);
+    }
+
+    &-shape {
+      float: right;
+      transform: translateX(3rem) skew(-12deg);
+
+      @include respond(phone) {
+        float: none;
+        transform: translateX(0) skew(0);
+      }
+    }
+
+    &-img {
+      transform: translateX(3rem);
+    }
+
+    &-text {
+      float: right;
+      transform: skew(-12deg);
+
+      @include respond(phone) {
+        float: none;
+        transform: skew(0);
+      }
+    }
+  }
+
+  // ---------- Booking form (mirror the diagonal split) ----------
+  .book {
+    background-image:
+      linear-gradient(
+        255deg,
+        rgba($color-white, 0.92) 0%,
+        rgba($color-white, 0.92) 50%,
+        transparent 50%
+      ),
+      url("./../img/nat-10.jpg");
+
+    @include respond(tab-land) {
+      background-image:
+        linear-gradient(
+          255deg,
+          rgba($color-white, 0.92) 0%,
+          rgba($color-white, 0.92) 65%,
+          transparent 65%
+        ),
+        url("./../img/nat-10.jpg");
+    }
+
+    @include respond(tab-port) {
+      background-image:
+        linear-gradient(
+          to left,
+          rgba($color-white, 0.92) 0%,
+          rgba($color-white, 0.92) 100%
+        ),
+        url("./../img/nat-10.jpg");
+    }
+
+    // No margin override needed: a 50%-wide block child naturally
+    // sits on the inline-start side, which is the RIGHT in RTL —
+    // perfectly aligned with the mirrored white half of the gradient.
+  }
+
+  // Form: move floating label to the right side
+  .form-input {
+    text-align: right;
+  }
+  .form-label {
+    margin-left: 0;
+    margin-right: 2rem;
+  }
+
+  // Radios: indicator on the right of the text
+  .form-radio-label {
+    padding-left: 0;
+    padding-right: 4.5rem;
+  }
+  .form-radio-button {
+    left: auto;
+    right: 0;
+  }
+
+  // ---------- Footer ----------
+  .footer-brand {
+    text-align: right;
+
+    @include respond(tab-port) {
+      text-align: center;
+    }
+  }
+
+  .footer-copy {
+    text-align: right;
+
+    @include respond(tab-port) {
+      text-align: center;
+    }
+  }
+
+  // ---------- Stats divider on the opposite side ----------
+  .stat:not(:last-child)::after {
+    right: auto;
+    left: 0;
+  }
+
+  // ---------- Btn-text arrows: handled in translations ----------
+}

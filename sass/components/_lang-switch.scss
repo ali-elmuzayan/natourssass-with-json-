@@ -1,0 +1,79 @@
+// ============================================
+// Language switcher (fixed pill in top-left)
+// ============================================
+.lang-switch {
+  position: fixed;
+  // Sit to the LEFT of the navigation hamburger so it never covers the logo
+  // Nav button is at right: 6.5rem, width 6rem -> 12.5rem from right edge.
+  top: 7rem;
+  right: 15rem;
+  z-index: 120;
+  display: inline-flex;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  background-color: rgba($color-white, 0.92);
+  border-radius: 10rem;
+  box-shadow: $shadow-md;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  @include respond(tab-port) {
+    top: 4.5rem;
+    right: 12rem;
+  }
+  @include respond(phone) {
+    top: 3rem;
+    right: 9.5rem;
+    padding: 0.3rem;
+  }
+
+  &-btn {
+    appearance: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    color: $color-grey-dark-3;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10rem;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+    line-height: 1;
+
+    &:hover {
+      color: $color-primary-dark;
+    }
+
+    &--active {
+      background-image: linear-gradient(
+        to right,
+        $color-primary,
+        $color-primary-dark
+      );
+      color: $color-white;
+      box-shadow: $shadow-sm;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-primary-dark;
+      outline-offset: 2px;
+    }
+  }
+}
+
+// RTL: nav button moves to the left, so the switcher mirrors there too
+[dir="rtl"] .lang-switch {
+  right: auto;
+  left: 15rem;
+
+  @include respond(tab-port) {
+    left: 12rem;
+  }
+  @include respond(phone) {
+    left: 9.5rem;
+  }
+}

@@ -14,9 +14,13 @@
 @import "components/stats";
 @import "components/gallery";
 @import "components/form";
+@import "components/lang-switch";
 
 @import "layout/grid";
 @import "layout/header";
 @import "layout/navigation";
 
 @import "pages/home";
+
+// RTL overrides last so they win specificity (same selector + [dir="rtl"])
+@import "base/rtl";

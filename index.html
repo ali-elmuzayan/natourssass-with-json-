@@ -10,9 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Only Lato is actually used by the stylesheet; trim the request -->
+    <!-- Lato for Latin script, Tajawal for Arabic -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Tajawal:wght@400;700&display=swap"
       rel="stylesheet"
     />
 
@@ -22,9 +22,16 @@
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="./css/icon-font.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./js/i18n.js"></script>
     <title>Natours App</title>
   </head>
   <body>
+    <!-- Language switcher -->
+    <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="lang.label">
+      <button type="button" class="lang-switch-btn" data-lang="en" aria-label="English">EN</button>
+      <button type="button" class="lang-switch-btn" data-lang="ar" aria-label="العربية">ع</button>
+    </div>
+
     <!-- navigation start here  -->
     <div class="navigation">
       <input type="checkbox" class="navigation-checkbox" id="nav-toggle" />
@@ -36,20 +43,20 @@
         <ul class="navigation-list">
           <li class="navigation-item">
             <a href="#" class="navigation-link"
-              ><span>01</span>About Notation</a
+              ><span>01</span><span data-i18n="nav.about">About Natours</span></a
             >
           </li>
           <li class="navigation-item">
-            <a href="#" class="navigation-link"><span>02</span>Your benfits</a>
+            <a href="#" class="navigation-link"><span>02</span><span data-i18n="nav.benefits">Your benefits</span></a>
           </li>
           <li class="navigation-item">
-            <a href="#" class="navigation-link"><span>03</span>Popular tours</a>
+            <a href="#" class="navigation-link"><span>03</span><span data-i18n="nav.tours">Popular tours</span></a>
           </li>
           <li class="navigation-item">
-            <a href="#" class="navigation-link"><span>04</span>Stories</a>
+            <a href="#" class="navigation-link"><span>04</span><span data-i18n="nav.stories">Stories</span></a>
           </li>
           <li class="navigation-item">
-            <a href="#" class="navigation-link"><span>05</span>Book now</a>
+            <a href="#" class="navigation-link"><span>05</span><span data-i18n="nav.book">Book now</span></a>
           </li>
         </ul>
       </nav>
@@ -72,10 +79,10 @@
       </div>
       <div class="header-text-box">
         <h1 class="heading-primary">
-          <span class="heading-primary-main">Outdoors</span>
-          <span class="heading-primary-sub">Is where life happens</span>
+          <span class="heading-primary-main" data-i18n="header.title">Outdoors</span>
+          <span class="heading-primary-sub" data-i18n="header.subtitle">Is where life happens</span>
         </h1>
-        <a href="#" class="btn btn-white btn-animated">Discover our tours</a>
+        <a href="#" class="btn btn-white btn-animated" data-i18n="header.cta">Discover our tours</a>
       </div>
     </header>
     <!-- HEADER end -->
@@ -85,32 +92,26 @@
       <!-- About section start  -->
       <section class="section-about">
         <div class="u-center-text u-mb-l">
-          <h2 class="heading-secondary">
+          <h2 class="heading-secondary" data-i18n="about.heading">
             Exciting Tours for adventurous people
           </h2>
         </div>
 
         <div class="row">
           <div class="col-1-of-2">
-            <h3 class="heading-tertiary u-mb-s">
-              You're going to fall love with nature
+            <h3 class="heading-tertiary u-mb-s" data-i18n="about.subheading1">
+              You're going to fall in love with nature
             </h3>
-            <p class="paragraph">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Exercitationem odit laudantium fugiat, ducimus harum repellat
-              unde, aliquid ea consequatur est sequi. Doloremque cumque et odit,
-              vel obcaecati officiis nisi saepe?
+            <p class="paragraph" data-i18n="about.text1">
+              Discover handcrafted journeys that immerse you in the wild.
             </p>
-            <h3 class="heading-tertiary u-mb-s">
+            <h3 class="heading-tertiary u-mb-s" data-i18n="about.subheading2">
               Live adventures like you never have before
             </h3>
-            <p class="paragraph">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci
-              reprehenderit iusto, unde magni sunt expedita modi. Iste voluptate
-              autem earum, maxime porro qui. Possimus ut, libero cum porro
-              nostrum doloremque?
+            <p class="paragraph" data-i18n="about.text2">
+              Join expert guides on small-group expeditions.
             </p>
-            <a href="#" class="btn-text text-color-primary-light"
+            <a href="#" class="btn-text text-color-primary-light" data-i18n="about.learn"
               >Learn more &rarr;</a
             >
           </div>
@@ -149,40 +150,36 @@
           <div class="col-1-of-4">
             <div class="feature-card">
               <i class="icon icon-basic-world"></i>
-              <h3 class="heading-tertiary u-mb-s">Explore the world</h3>
-              <p class="paragraph">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                eos, sapiente ex laborum minima harum?
+              <h3 class="heading-tertiary u-mb-s" data-i18n="feature.world.title">Explore the world</h3>
+              <p class="paragraph" data-i18n="feature.world.text">
+                Travel beyond the postcard.
               </p>
             </div>
           </div>
           <div class="col-1-of-4">
             <div class="feature-card">
               <i class="icon icon-basic-compass"></i>
-              <h3 class="heading-tertiary u-mb-s">Meet Nature</h3>
-              <p class="paragraph">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                eos, sapiente ex laborum minima harum?
+              <h3 class="heading-tertiary u-mb-s" data-i18n="feature.nature.title">Meet nature</h3>
+              <p class="paragraph" data-i18n="feature.nature.text">
+                Sleep under starlight.
               </p>
             </div>
           </div>
           <div class="col-1-of-4">
             <div class="feature-card">
               <i class="icon icon-basic-map"></i>
-              <h3 class="heading-tertiary u-mb-s">Find your way</h3>
-              <p class="paragraph">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                eos, sapiente ex laborum minima harum?
+              <h3 class="heading-tertiary u-mb-s" data-i18n="feature.way.title">Find your way</h3>
+              <p class="paragraph" data-i18n="feature.way.text">
+                Our guides handle the logistics.
               </p>
             </div>
           </div>
           <div class="col-1-of-4">
             <div class="feature-card">
               <i class="icon icon-basic-heart"></i>
-              <h3 class="heading-tertiary u-mb-s">Live a healthier life</h3>
-              <p class="paragraph">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
-                eos, sapiente ex laborum minima harum?
+              <h3 class="heading-tertiary u-mb-s" data-i18n="feature.health.title">Live a healthier life</h3>
+              <p class="paragraph" data-i18n="feature.health.text">
+                Walking, climbing and breathing clean air.
               </p>
             </div>
           </div>
@@ -196,19 +193,19 @@
           <div class="stats">
             <div class="stat">
               <p class="stat-number">120<span>+</span></p>
-              <p class="stat-label">Destinations</p>
+              <p class="stat-label" data-i18n="stats.destinations">Destinations</p>
             </div>
             <div class="stat">
               <p class="stat-number">25<span>k</span></p>
-              <p class="stat-label">Happy travelers</p>
+              <p class="stat-label" data-i18n="stats.travelers">Happy travelers</p>
             </div>
             <div class="stat">
               <p class="stat-number">4.9<span>/5</span></p>
-              <p class="stat-label">Avg. rating</p>
+              <p class="stat-label" data-i18n="stats.rating">Avg. rating</p>
             </div>
             <div class="stat">
               <p class="stat-number">15<span>yrs</span></p>
-              <p class="stat-label">Of experience</p>
+              <p class="stat-label" data-i18n="stats.experience">Of experience</p>
             </div>
           </div>
         </div>
@@ -218,7 +215,7 @@
       <!-- Tours section start  -->
       <div class="section-tours">
         <div class="u-center-text u-mb-l">
-          <h2 class="heading-secondary">Most Popular Tours</h2>
+          <h2 class="heading-secondary" data-i18n="tours.heading">Most Popular Tours</h2>
         </div>
 
         <div class="row">
@@ -227,27 +224,27 @@
               <div class="card-side card-side-front">
                 <div class="card-img card-img-1"></div>
                 <h4 class="card-heading">
-                  <span class="card-heading-span card-heading-span-1">
+                  <span class="card-heading-span card-heading-span-1" data-i18n="tours.t1.title">
                     The Sea Explorer
                   </span>
                 </h4>
                 <div class="card-details">
                   <ul>
-                    <li>3 day tours</li>
-                    <li>Up to 30 people</li>
-                    <li>2 tour guides</li>
-                    <li>Sleep in cozy hostels</li>
-                    <li>Difficulty: easy</li>
+                    <li data-i18n="tours.t1.l1">3 day tours</li>
+                    <li data-i18n="tours.t1.l2">Up to 30 people</li>
+                    <li data-i18n="tours.t1.l3">2 tour guides</li>
+                    <li data-i18n="tours.t1.l4">Sleep in cozy hostels</li>
+                    <li data-i18n="tours.t1.l5">Difficulty: easy</li>
                   </ul>
                 </div>
               </div>
               <div class="card-side card-side-back card-secondary">
                 <div class="card-cta">
                   <div class="card-price-box">
-                    <p class="card-price-only">Only</p>
+                    <p class="card-price-only" data-i18n="tours.only">Only</p>
                     <p class="card-price-value">$297</p>
                   </div>
-                  <a href="#" class="btn btn-white">Book now!</a>
+                  <a href="#" class="btn btn-white" data-i18n="tours.book">Book now!</a>
                 </div>
               </div>
             </div>
@@ -257,27 +254,27 @@
               <div class="card-side card-side-front">
                 <div class="card-img card-img-2"></div>
                 <h4 class="card-heading">
-                  <span class="card-heading-span card-heading-span-2">
+                  <span class="card-heading-span card-heading-span-2" data-i18n="tours.t2.title">
                     The Forest Hiker
                   </span>
                 </h4>
                 <div class="card-details">
                   <ul>
-                    <li>7 day tours</li>
-                    <li>Up to 40 people</li>
-                    <li>6 tour guides</li>
-                    <li>Sleep in Provided tents</li>
-                    <li>Difficulty: medium</li>
+                    <li data-i18n="tours.t2.l1">7 day tours</li>
+                    <li data-i18n="tours.t2.l2">Up to 40 people</li>
+                    <li data-i18n="tours.t2.l3">6 tour guides</li>
+                    <li data-i18n="tours.t2.l4">Sleep in provided tents</li>
+                    <li data-i18n="tours.t2.l5">Difficulty: medium</li>
                   </ul>
                 </div>
               </div>
               <div class="card-side card-side-back card-primary">
                 <div class="card-cta">
                   <div class="card-price-box">
-                    <p class="card-price-only">Only</p>
+                    <p class="card-price-only" data-i18n="tours.only">Only</p>
                     <p class="card-price-value">$497</p>
                   </div>
-                  <a href="#" class="btn btn-white">Book now!</a>
+                  <a href="#" class="btn btn-white" data-i18n="tours.book">Book now!</a>
                 </div>
               </div>
             </div>
@@ -287,27 +284,27 @@
               <div class="card-side card-side-front">
                 <div class="card-img card-img-3"></div>
                 <h4 class="card-heading">
-                  <span class="card-heading-span card-heading-span-3">
+                  <span class="card-heading-span card-heading-span-3" data-i18n="tours.t3.title">
                     The Snow Adventurer
                   </span>
                 </h4>
                 <div class="card-details">
                   <ul>
-                    <li>5 day tours</li>
-                    <li>Up to 15 people</li>
-                    <li>3 tour guides</li>
-                    <li>Sleep in provided tents</li>
-                    <li>Difficulty: hard</li>
+                    <li data-i18n="tours.t3.l1">5 day tours</li>
+                    <li data-i18n="tours.t3.l2">Up to 15 people</li>
+                    <li data-i18n="tours.t3.l3">3 tour guides</li>
+                    <li data-i18n="tours.t3.l4">Sleep in provided tents</li>
+                    <li data-i18n="tours.t3.l5">Difficulty: hard</li>
                   </ul>
                 </div>
               </div>
               <div class="card-side card-side-back card-tertiary">
                 <div class="card-cta">
                   <div class="card-price-box">
-                    <p class="card-price-only">Only</p>
+                    <p class="card-price-only" data-i18n="tours.only">Only</p>
                     <p class="card-price-value">$897</p>
                   </div>
-                  <a href="#" class="btn btn-white">Book now!</a>
+                  <a href="#" class="btn btn-white" data-i18n="tours.book">Book now!</a>
                 </div>
               </div>
             </div>
@@ -374,7 +371,7 @@
         </div> -->
 
         <div class="u-center-text u-mt-xl">
-          <a href="#" class="btn btn-green">Discover all tours</a>
+          <a href="#" class="btn btn-green" data-i18n="tours.discover">Discover all tours</a>
         </div>
       </div>
       <!-- Torus section end  -->
@@ -398,7 +395,7 @@
           </video>
         </div>
         <div class="u-center-text u-mb-l">
-          <h2 class="heading-secondary">We make people genuinely happy</h2>
+          <h2 class="heading-secondary" data-i18n="stories.heading">We make people genuinely happy</h2>
         </div>
         <div class="row">
           <div class="story">
@@ -413,12 +410,11 @@
               <figcaption class="story-caption">Mary Smith</figcaption>
             </figure>
             <div class="story-text">
-              <h3 class="heading-tertiary u-mb-s">
+              <h3 class="heading-tertiary u-mb-s" data-i18n="stories.s1.title">
                 I had the best week ever with my family
               </h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                doloribus, quidem autem quas impedit, voluptates quia quiam
+              <p data-i18n="stories.s1.text">
+                Every detail was thoughtful.
               </p>
             </div>
           </div>
@@ -436,18 +432,17 @@
               <figcaption class="story-caption">Mary Smith</figcaption>
             </figure>
             <div class="story-text">
-              <h3 class="heading-tertiary u-mb-s">
+              <h3 class="heading-tertiary u-mb-s" data-i18n="stories.s2.title">
                 WOW! My life is completely different now
               </h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                doloribus, quidem autem quas impedit, voluptates quia quiam
+              <p data-i18n="stories.s2.text">
+                Came back with new friends and a sunrise habit.
               </p>
             </div>
           </div>
         </div>
         <div class="u-center-text u-mt-xl">
-          <a href="#" class="btn-text">Read all stories &rarr;</a>
+          <a href="#" class="btn-text" data-i18n="stories.readAll">Read all stories &rarr;</a>
         </div>
       </div>
       </section>
@@ -456,7 +451,7 @@
       <!-- Gallery section start -->
       <section class="section-gallery">
         <div class="u-center-text u-mb-l">
-          <h2 class="heading-secondary">Destinations our guests love</h2>
+          <h2 class="heading-secondary" data-i18n="gallery.heading">Destinations our guests love</h2>
         </div>
         <div class="gallery">
           <figure class="gallery-item gallery-item-1">
@@ -494,36 +489,36 @@
             <div class="book-form">
               <form action="#" class="form">
                 <div class="u-mb-m">
-                  <h2 class="heading-secondary">Start booking now</h2>
+                  <h2 class="heading-secondary" data-i18n="book.heading">Start booking now</h2>
                 </div>
 
                 <div class="form-group">
-                  <input type="text" class="form-input" placeholder="Full name" id="name" required />
-                  <label for="name" class="form-label">Full name</label>
+                  <input type="text" class="form-input" placeholder="Full name" id="name" required data-i18n-placeholder="book.name" />
+                  <label for="name" class="form-label" data-i18n="book.name">Full name</label>
                 </div>
 
                 <div class="form-group">
-                  <input type="email" class="form-input" placeholder="Email address" id="email" required />
-                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-input" placeholder="Email address" id="email" required data-i18n-placeholder="book.email" />
+                  <label for="email" class="form-label" data-i18n="book.email">Email address</label>
                 </div>
 
                 <div class="form-group form-radio-group">
                   <div class="form-radio">
                     <input type="radio" class="form-radio-input" id="small" name="size" />
                     <label for="small" class="form-radio-label">
-                      <span class="form-radio-button"></span>Small tour group
+                      <span class="form-radio-button"></span><span data-i18n="book.small">Small tour group</span>
                     </label>
                   </div>
                   <div class="form-radio">
                     <input type="radio" class="form-radio-input" id="large" name="size" />
                     <label for="large" class="form-radio-label">
-                      <span class="form-radio-button"></span>Large tour group
+                      <span class="form-radio-button"></span><span data-i18n="book.large">Large tour group</span>
                     </label>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn-green">Next step &rarr;</button>
+                  <button type="submit" class="btn btn-green" data-i18n="book.next">Next step &rarr;</button>
                 </div>
               </form>
             </div>
@@ -548,7 +543,7 @@
             loading="lazy"
             decoding="async"
           />
-          <p class="footer-tagline">
+          <p class="footer-tagline" data-i18n="footer.tagline">
             Outdoor tours for adventurous people — discover destinations,
             meet nature and book your next adventure.
           </p>
@@ -559,26 +554,26 @@
         <div class="footer-cols">
           <nav class="footer-navigation" aria-label="Footer">
             <ul class="footer-list">
-              <li class="footer-item"><a href="#" class="footer-link">Company</a></li>
-              <li class="footer-item"><a href="#" class="footer-link">Contact us</a></li>
-              <li class="footer-item"><a href="#" class="footer-link">Careers</a></li>
-              <li class="footer-item"><a href="#" class="footer-link">Privacy policy</a></li>
-              <li class="footer-item"><a href="#" class="footer-link">Terms</a></li>
+              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.company">Company</a></li>
+              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.contact">Contact us</a></li>
+              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.careers">Careers</a></li>
+              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.privacy">Privacy policy</a></li>
+              <li class="footer-item"><a href="#" class="footer-link" data-i18n="footer.terms">Terms</a></li>
             </ul>
           </nav>
 
           <div class="footer-credits">
             <p>
-              Built by
+              <span data-i18n="footer.builtBy">Built by</span>
               <a href="https://www.ali-elmuzayan.com" target="_blank" rel="noopener" class="footer-link u-text-upper">eng. Ali Ahmed</a>
             </p>
             <p>
-              Design by
+              <span data-i18n="footer.designBy">Design by</span>
               <a href="#" class="footer-link u-text-upper">Jonas Schmedtmann</a>
-              — course
-              <span class="u-text-upper">Advanced CSS and Sass</span>
+              <span data-i18n="footer.course">— course</span>
+              <span class="u-text-upper" data-i18n="footer.courseName">Advanced CSS and Sass</span>
             </p>
-            <p class="footer-copy">&copy; 2026 Natours. All rights reserved.</p>
+            <p class="footer-copy" data-i18n="footer.copy">&copy; 2026 Natours. All rights reserved.</p>
           </div>
         </div>
       </div>
